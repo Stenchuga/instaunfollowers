@@ -1,0 +1,288 @@
+/* Pčelarstvo Stanojević – rustic honey theme */
+:root{
+  --wood:#3a2412;--wood2:#2a190b;--gold:#E9B44C;--gold2:#F6D58A;
+  --cream:#F6EBD3;--paper:#EFE0BF;--ink:#3b2714;--muted:#6e5638;--line:#3b271422;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{font:16px/1.65 "Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:auto;padding:0 32px}
+.ser{font-family:"Lora",Georgia,serif}
+
+/* textures */
+.wood{color:var(--cream);background:
+  repeating-linear-gradient(180deg,#ffffff06 0 2px,transparent 2px 9px),
+  repeating-linear-gradient(178deg,#00000018 0 1px,transparent 1px 23px),
+  linear-gradient(180deg,#4a2e16,#2e1b0b 60%,#3c2512)}
+.paper{background:
+  radial-gradient(ellipse at 20% 10%,#fff8e6 0,transparent 60%),
+  radial-gradient(ellipse at 90% 90%,#e2cc9f 0,transparent 55%),var(--paper)}
+
+/* buttons, labels */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:0;
+  background:linear-gradient(180deg,#F3C766,#DFA236);color:#3a2207;font:800 15px "Nunito Sans",sans-serif;
+  padding:13px 26px;border-radius:99px;box-shadow:0 4px 0 #a86f17,0 10px 20px #0003;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.arrow:after{content:"›";font-size:20px;line-height:0}
+.btn.ghost{background:none;border:2px solid var(--gold);color:var(--gold2);box-shadow:none}
+.btn.dark{background:var(--wood);color:var(--gold2);box-shadow:0 4px 0 #1a0f05}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.kick{display:flex;align-items:center;gap:14px;color:var(--gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.kick:before,.kick:after{content:"";width:46px;height:1px;background:currentColor}
+.kick.left:after{display:none}
+h1,h2,h3{font-family:"Lora",Georgia,serif;line-height:1.15}
+h2{font-size:40px;font-weight:700}
+.sub{font:italic 500 20px "Lora",serif;color:var(--muted)}
+
+/* hexagon icon */
+.hexi{width:64px;height:72px;flex:none;display:grid;place-items:center;background:var(--gold);
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.hexi i{width:58px;height:66px;display:grid;place-items:center;background:var(--wood);clip-path:inherit}
+.hexi svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.6}
+
+/* header */
+header{position:absolute;inset:0 0 auto;z-index:20;background:linear-gradient(#1c1006f0,#1c100600)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:92px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;flex:none}
+.logo img{height:58px;border-radius:10px}
+.logo b{font:700 26px/1 "Lora",serif;color:var(--gold2)}
+.logo small{display:block;font:600 15px "Lora",serif;color:var(--gold)}
+nav.main{display:flex;gap:24px;font-weight:700;font-size:15px;color:var(--cream)}
+nav.main a{padding:4px 0}
+nav.main a:hover{color:var(--gold2)}
+nav.main a.on{color:var(--gold);box-shadow:0 3px 0 var(--gold)}
+.hr{display:flex;gap:14px;align-items:center;flex:none}
+.lang{font-weight:800;font-size:13px;color:var(--cream)}
+.lang a{opacity:.7}.lang a.on{color:var(--gold);opacity:1}
+.cartbtn{border:2px solid var(--gold);color:var(--gold2);border-radius:99px;padding:8px 16px;font-weight:800;font-size:14px;display:flex;gap:8px;align-items:center}
+.cartbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.cartbtn .n{background:var(--gold);color:var(--wood2);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+nav.main .close{display:none}
+.burger{display:none;background:none;border:0;color:var(--gold2);cursor:pointer}
+.burger svg{width:30px;height:30px;stroke:currentColor;stroke-width:2}
+
+/* home hero */
+.hero{min-height:660px;display:flex;align-items:center;position:relative;color:var(--cream);background:#1e1207 center 40%/cover}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1e1207 0%,#1e1207d0 34%,#1e120700 70%),linear-gradient(0deg,#1e1207aa,transparent 40%)}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,#f5b84230,transparent 55%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:70px}
+.hero h1{font-size:80px;font-weight:600;line-height:1;margin:22px 0 18px;color:#FFF3DA;text-shadow:0 4px 30px #0008}
+.hero p.s{font:italic 500 32px/1.25 "Lora",serif;color:var(--gold2);margin-bottom:34px}
+
+/* inner page banner */
+.banner{position:relative;color:var(--cream);padding:170px 0 70px;background:#1e1207 center/cover}
+.banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1e1207f0 10%,#1e120788),linear-gradient(0deg,#1e1207,transparent 60%)}
+.banner .wrap{position:relative}
+.banner h1{font-size:56px;font-weight:600;color:#FFF3DA;margin-top:14px}
+.banner p{font:italic 500 22px "Lora",serif;color:var(--gold2);margin-top:8px;max-width:36em}
+
+/* features strip */
+.feat .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-block:30px}
+.f{display:flex;gap:16px;align-items:center;padding:0 22px;border-left:1px solid #ffffff22}
+.f:first-child{border:0;padding-left:0}
+.f span:last-child{font:500 16px/1.35 "Lora",serif}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:440px 1fr;gap:70px;align-items:center;padding-block:90px}
+.polaroid{background:#fff;padding:12px 12px 14px;box-shadow:0 18px 40px #3b271455;transform:rotate(-4deg)}
+.polaroid img{width:100%;height:300px;object-fit:cover}
+.about p{margin:18px 0 26px;font-size:17px;max-width:36em}
+
+/* home products */
+.prod{position:relative;padding:90px 0;color:var(--cream);background:#1e1207 center/cover}
+.prod:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1e1207f2 0,#1e1207c0 40%,#1e1207f2)}
+.prod .wrap{position:relative}
+.prod .head{text-align:center}.prod .head h2{color:var(--gold2)}.prod .head .sub{color:var(--cream);opacity:.8}
+.hexes{display:flex;justify-content:center;gap:26px;margin:44px 0 40px;flex-wrap:wrap}
+.hx{text-align:center;font:600 17px "Lora",serif}
+.hx .h{width:150px;height:170px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;margin-bottom:12px;transition:transform .2s}
+.hx .h div{width:140px;height:160px;clip-path:inherit;background:#2a190b center/cover}
+.hx:hover .h{transform:translateY(-6px)}
+.cos{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+.c{background:#ffffff0d;border:1px solid #e9b44c55;border-radius:18px;padding:18px 22px;display:flex;gap:16px;align-items:center;width:330px;transition:background .2s}
+.c:hover{background:#ffffff1a}
+.c img{width:84px;height:84px;object-fit:contain}
+.c b{font:700 20px "Lora",serif;color:var(--gold2)}.c small{display:block;opacity:.8}
+
+/* services */
+.serv{display:grid;grid-template-columns:1.2fr 1fr}
+.serv .l{padding:80px 50px 80px max(32px,calc((100vw - 1200px)/2 + 32px))}
+.serv .r{background:center/cover;min-height:340px;position:relative}
+.serv .r:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--paper),transparent 25%)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px}
+.sv{text-align:center;padding:0 18px;border-left:1px solid var(--line)}.sv:first-child{border:0}
+.sv .hexi{margin:0 auto 14px}.sv h3{font-size:19px;margin-bottom:6px}.sv p{font-size:14px;color:var(--muted)}
+
+/* gallery teaser + award */
+.ga .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:center;padding-block:60px}
+.ga .gl{display:flex;gap:40px;align-items:center}
+.photos{display:flex;align-items:center}
+.photos img{width:180px;height:150px;object-fit:cover;border:8px solid #fff;box-shadow:0 12px 30px #0008}
+.photos img:nth-child(1){transform:rotate(-6deg)}
+.photos img:nth-child(2){transform:rotate(3deg) scale(1.12);margin:0 -18px;z-index:1;position:relative}
+.photos img:nth-child(3){transform:rotate(7deg)}
+.ga h2{color:var(--gold2);font-size:30px}.ga p{opacity:.85;margin:6px 0 18px}
+.award{display:flex;gap:22px;align-items:center;border-left:1px solid #ffffff22;padding-left:50px}
+.award img{width:120px;height:150px;object-fit:cover;border-radius:12px;border:3px solid var(--gold);flex:none}
+.award b{font:700 20px/1.3 "Lora",serif;color:var(--gold2)}
+
+/* prose pages */
+.content{padding:70px 0 90px}
+.prose{max-width:780px;margin:auto}
+.prose h2{font-size:32px;margin:48px 0 14px}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-size:22px;margin:30px 0 10px}
+.prose p{margin:0 0 16px;font-size:17px}
+.prose ul{margin:0 0 18px;padding-left:22px}.prose li{margin:6px 0;font-size:17px}
+.prose .note{background:#fff8e6;border-left:4px solid var(--gold);padding:16px 20px;border-radius:0 12px 12px 0;font-style:italic}
+.prose figure{margin:28px 0}
+.prose figure img{width:100%;max-height:520px;object-fit:cover;border-radius:14px;box-shadow:0 14px 30px #3b271433}
+.prose figcaption{text-align:center;font:italic 15px "Lora",serif;color:var(--muted);margin-top:8px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pair img{height:100%;object-fit:cover}
+.toc{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:46px}
+.toc a{border:1.5px solid #3b271433;border-radius:99px;padding:7px 16px;font-weight:700;font-size:14px;background:#fff6}
+.toc a:hover{background:var(--gold)}
+.stats{display:flex;gap:16px;margin:26px 0}
+.stats div{flex:1;background:var(--wood);color:var(--cream);border-radius:16px;padding:18px;text-align:center}
+.stats b{display:block;font:700 30px "Lora",serif;color:var(--gold2)}
+.stats span{font-size:14px;opacity:.85}
+.awardbox{display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:center;background:var(--wood);color:var(--cream);border-radius:20px;padding:22px;margin-bottom:40px}
+.awardbox img{border-radius:12px;height:300px;width:100%;object-fit:cover}
+.awardbox h2{color:var(--gold2);font-size:28px;margin:10px 0}
+
+/* galleries */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:18px 0 50px}
+.gal a{display:block;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#0002}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gal a:hover img{transform:scale(1.05)}
+.gal a span{position:absolute;inset:auto 0 0;padding:28px 12px 10px;color:#fff;font:600 14px "Lora",serif;background:linear-gradient(transparent,#000a)}
+.galtitle{display:flex;align-items:center;gap:14px;font-size:28px}
+.galtitle:after{content:"";flex:1;height:1px;background:#3b271433}
+.lb{position:fixed;inset:0;background:#120a04f2;z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+.lb.open{display:flex}
+.lb img{max-height:86vh;max-width:92vw;border-radius:8px}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--cream);font:italic 18px "Lora",serif}
+.lb button{position:absolute;background:none;border:0;color:var(--gold2);font-size:46px;cursor:pointer;padding:10px 18px}
+.lb .x{top:10px;right:10px}.lb .pv{left:10px}.lb .nx{right:10px}
+
+/* shop */
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:34px}
+.chips button{border:1.5px solid #3b271433;background:#fff6;border-radius:99px;padding:8px 18px;font:700 14px "Nunito Sans",sans-serif;cursor:pointer;color:var(--ink)}
+.chips button.on{background:var(--wood);color:var(--gold2);border-color:var(--wood)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:#fffaf0;border-radius:20px;padding:14px;box-shadow:0 2px 0 #dcc79c,0 12px 24px #3b27140f;display:flex;flex-direction:column}
+.card .im{height:220px;border-radius:14px;background:radial-gradient(circle at 50% 40%,#4a2e16,#1e1207);display:grid;place-items:center;overflow:hidden}
+.card .im img{max-height:190px;max-width:85%;object-fit:contain}
+.card .im img.cover{max-height:none;max-width:none;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:21px;margin:14px 6px 2px}
+.card p{color:var(--muted);font-size:14px;margin:0 6px;flex:1}
+.card .f2{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:14px 6px 4px}
+.price{font:700 19px "Lora",serif}
+.price.req{font:700 15px "Nunito Sans",sans-serif;color:var(--muted)}
+.price small{font:600 13px "Nunito Sans";color:var(--muted)}
+.card .more{font-size:13px;font-weight:700;color:var(--muted);margin:8px 6px 0;text-decoration:underline}
+.add{white-space:nowrap;background:var(--gold);border:0;border-radius:99px;padding:9px 16px;font:800 14px "Nunito Sans",sans-serif;cursor:pointer;color:#3a2207}
+.add.ok{background:var(--wood);color:var(--gold2)}
+.infobar{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.infobar div{display:flex;gap:10px;align-items:center;background:#fff6;border-radius:14px;padding:12px 18px;font-weight:700;font-size:14px}
+
+/* product detail */
+.pd{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.pd .ph{background:radial-gradient(circle at 50% 40%,#4a2e16,#1e1207);border-radius:22px;padding:40px;display:grid;place-items:center;position:sticky;top:20px}
+.pd .ph img{max-height:380px}
+.pd h2{font-size:42px}
+.pd .lead{font-size:18px;margin:16px 0}
+.pd dl{margin:22px 0}.pd dt{font-weight:800;margin-top:14px}.pd dd{margin:2px 0 0}
+.qty{display:flex;align-items:center;border:2px solid var(--wood);border-radius:99px;overflow:hidden}
+.qty button{background:none;border:0;width:38px;height:42px;font-size:20px;cursor:pointer;color:var(--ink)}
+.qty input{width:44px;border:0;text-align:center;font:800 16px "Nunito Sans";background:none;color:var(--ink)}
+.buy{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0}
+
+/* cart / checkout */
+.co{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.box{background:#fffaf0;border-radius:20px;padding:26px;box-shadow:0 2px 0 #dcc79c}
+.box h2{font-size:26px;margin-bottom:16px}
+.line{display:grid;grid-template-columns:64px 1fr auto auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line img{width:64px;height:64px;object-fit:contain;background:#2a190b;border-radius:10px;padding:4px}
+.line b{font-family:"Lora",serif;font-size:17px}
+.line .rm{background:none;border:0;color:var(--muted);cursor:pointer;font-size:20px}
+.tot{display:flex;justify-content:space-between;font:700 20px "Lora",serif;margin-top:16px}
+.empty{text-align:center;padding:30px 0;color:var(--muted)}
+label{display:block;font-weight:700;font-size:14px;margin:12px 0 5px}
+input,textarea,select{width:100%;padding:12px 14px;border:1.5px solid #3b271433;border-radius:12px;font:16px "Nunito Sans",sans-serif;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.small{font-size:13px;color:var(--muted);margin-top:10px}
+.done{text-align:center;padding:40px 20px}
+.done .hexi{margin:0 auto 18px;width:90px;height:100px}.done .hexi i{width:82px;height:92px}
+.hidden{display:none!important}
+.wa{display:inline-flex;gap:8px;align-items:center;font-weight:800;color:#1f7a3c;margin-top:14px}
+
+/* contact */
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cc{background:var(--wood);color:var(--cream);border-radius:20px;padding:28px;text-align:center}
+.cc .hexi{margin:0 auto 14px}
+.cc b{display:block;font:700 22px "Lora",serif;color:var(--gold2);margin-top:4px;word-break:break-word}
+
+/* footer */
+footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-items:center;padding-block:40px}
+.ct div{display:flex;gap:12px;margin:6px 0;align-items:center}
+.ct svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:2;flex:none}
+.motto{font:italic 500 26px/1.3 "Lora",serif;color:var(--gold2);text-align:right;transform:rotate(-3deg)}
+.copy{text-align:center;font-size:13px;opacity:.6;padding:14px;border-top:1px solid #ffffff1a}
+
+/* toast */
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120px);background:var(--wood);color:var(--gold2);padding:14px 22px;border-radius:99px;font-weight:800;box-shadow:0 10px 30px #0005;transition:transform .3s;z-index:90}
+.toast.show{transform:translate(-50%,0)}
+
+/* responsive */
+@media (max-width:1100px){
+  nav.main{gap:16px;font-size:14px}
+  .hero h1{font-size:64px}
+}
+@media (max-width:980px){
+  .burger{display:block}
+  nav.main{position:fixed;inset:0;background:#1c1006f8;flex-direction:column;justify-content:center;align-items:center;gap:22px;font-size:22px;font-family:"Lora",serif;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility .25s;z-index:30}
+  nav.main.open{transform:none;visibility:visible}
+  nav.main .close{display:block;position:absolute;top:22px;right:26px;font-size:40px;color:var(--gold2)}
+  .feat .wrap{grid-template-columns:1fr 1fr;gap:22px}
+  .f{border:0;padding:0}
+  .about .wrap,.ga .wrap,.co,.pd,.serv{grid-template-columns:1fr}
+  .about .wrap{gap:50px}
+  .serv .l{padding:60px 32px}
+  .award{border:0;padding:0}
+  .pd .ph{position:static}
+  footer .wrap{grid-template-columns:1fr;text-align:center}
+  footer .logo{justify-content:center}.ct div{justify-content:center}.motto{text-align:center}
+  .cgrid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header .wrap{height:76px}
+  .logo img{height:40px}.logo b{font-size:19px}.logo small{font-size:12px}
+  .cartbtn .t{display:none}
+  .hr{gap:8px}.cartbtn{padding:6px 10px}.logo{gap:8px}.burger{padding:0}
+  header .wrap{gap:8px}
+  .lang{font-size:12px}
+  .hero{min-height:560px}
+  .hero h1{font-size:46px}.hero p.s{font-size:22px}
+  .banner{padding:130px 0 46px}.banner h1{font-size:36px}.banner p{font-size:18px}
+  h2{font-size:30px}
+  .feat .wrap{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr;gap:26px}.sv{border:0}
+  .ga .gl{flex-direction:column;align-items:flex-start}
+  .photos img{width:110px;height:100px;border-width:5px}
+  .hx .h{width:110px;height:125px}.hx .h div{width:102px;height:117px}
+  .hexes{gap:14px}
+  .pair,.two{grid-template-columns:1fr}
+  .awardbox{grid-template-columns:1fr}
+  .stats{flex-direction:column}
+  .line{grid-template-columns:52px 1fr auto;}
+  .line .qty{grid-column:2}
+  .kick:before,.kick:after{width:24px}
+  .prose h2{font-size:26px}
+}

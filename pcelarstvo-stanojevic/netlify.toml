@@ -1,0 +1,3 @@
+# Netlify: objavljuje se folder "site" (bez build koraka)
+[build]
+  publish = "site"
