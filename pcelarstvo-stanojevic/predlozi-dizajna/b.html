@@ -1,0 +1,46 @@
+<!doctype html><html lang="sr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B – Tamno zlato</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0B07;--bg2:#17120B;--gold:#D4A64A;--gold2:#F1D08A;--text:#EDE3CF;--muted:#A89878;--line:#3a2f1c}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--text);font:300 17px/1.7 "Jost",sans-serif}
+.wrap{max-width:1240px;margin:auto;padding:0 40px}
+header{position:absolute;inset:0 0 auto;z-index:2}header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:22px}
+header img{height:64px}nav{display:flex;gap:34px;text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:500}
+.cart{border:1px solid var(--gold);color:var(--gold);padding:9px 18px;letter-spacing:.2em;font-size:12px;text-transform:uppercase}
+.hero{height:760px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#0E0B07 30%,#0e0b0799 60%,#0e0b0733),url(../img/052.jpg) right/cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:200px;background:linear-gradient(transparent,var(--bg))}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.kicker{color:var(--gold);letter-spacing:.35em;text-transform:uppercase;font-size:12px;display:flex;align-items:center;gap:14px}.kicker:before{content:"";width:46px;height:1px;background:var(--gold)}
+h1{font:500 88px/.98 "Cormorant Garamond",serif;margin:22px 0 26px;max-width:9.5em}h1 i{color:var(--gold2)}
+.lead{max-width:30em;color:var(--muted);font-size:18px}
+.btn{display:inline-block;margin-top:38px;margin-right:16px;padding:17px 34px;text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:500}
+.b1{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1206}.b2{border:1px solid var(--line);color:var(--text)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:110px 0}
+h2{font:500 56px/1.05 "Cormorant Garamond",serif}h2 i{color:var(--gold2)}
+.prodrow{display:flex;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.prod{flex:1;padding:34px 26px;border-right:1px solid var(--line);text-align:center}.prod:last-child{border:0}
+.prod img{height:190px;filter:drop-shadow(0 30px 30px #000)}.prod h3{font:600 28px "Cormorant Garamond",serif;margin-top:16px;color:var(--gold2)}
+.prod p{color:var(--muted);font-size:14px}.prod .pr{margin-top:12px;letter-spacing:.15em;font-size:13px}
+.add{margin-top:16px;background:none;border:1px solid var(--gold);color:var(--gold);padding:10px 22px;text-transform:uppercase;letter-spacing:.2em;font:500 11px "Jost"}
+.award{background:var(--bg2);border-block:1px solid var(--line)}
+.award .wrap{display:grid;grid-template-columns:380px 1fr;gap:70px;align-items:center;padding-block:80px}
+.award img{width:100%;height:460px;object-fit:cover;filter:sepia(.25)}
+.stats{display:flex;gap:56px;margin-top:34px}.stats b{display:block;font:500 52px "Cormorant Garamond",serif;color:var(--gold)}.stats span{color:var(--muted);font-size:14px}
+.hexbg{background:url(../img/002.jpg) center/cover;padding:90px 0;text-align:center}
+</style></head><body>
+<header><div class="wrap"><img src="../img/001.png"><nav><a>Prodavnica</a><a>Apitox</a><a>Apikomora</a><a>Galerija</a><a>Kontakt</a></nav><span class="cart">Korpa (0)</span></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Pčelarstvo Stanojević</div>
+<h1>Snaga <i>pčelinjeg otrova</i> i čistog meda</h1>
+<p class="lead">Kozmetika ApitoxCosmetics, pčelinji proizvodi i nagrađeni Apitox sakupljač – iz porodičnog pčelarstva Gorana Stanojevića.</p>
+<a class="btn b1">Prodavnica</a><a class="btn b2">Naša priča</a></div></section>
+<section class="wrap" style="padding-top:60px"><div class="kicker">ApitoxCosmetics</div><h2 style="margin-top:14px">Lepota <i>iz košnice</i></h2>
+<div class="prodrow">
+<div class="prod"><img src="../img/004.png"><h3>ApiFigura</h3><p>Antirid krema sa pčelinjim otrovom</p><div class="pr">0.000 RSD</div><button class="add">Dodaj u korpu</button></div>
+<div class="prod"><img src="../img/005.png"><h3>ApiSalus</h3><p>Pčelinje zdravlje</p><div class="pr">0.000 RSD</div><button class="add">Dodaj u korpu</button></div>
+<div class="prod"><img src="../img/006.png"><h3>ProPolis</h3><p>Krema na bazi propolisa</p><div class="pr">0.000 RSD</div><button class="add">Dodaj u korpu</button></div>
+</div></section>
+<section class="award" style="margin-top:100px"><div class="wrap"><img src="../img/011.jpg"><div><div class="kicker">Apitox sakupljač</div>
+<h2 style="margin-top:14px">Prvo mesto za <i>najbolju inovaciju</i></h2><p class="lead" style="margin-top:20px">Uređaj za sakupljanje pčelinjeg otrova koji Goran razvija od 2013. godine – posrebrena žica, automatsko isključivanje, rad na baterije.</p>
+<div class="stats"><div><b>2013.</b><span>prvi model</span></div><div><b>5–12 g</b><span>otrova dnevno</span></div><div><b>45 min</b><span>automatski rad</span></div></div></div></div></section>
+</body></html>

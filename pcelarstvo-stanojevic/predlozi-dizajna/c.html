@@ -1,0 +1,51 @@
+<!doctype html><html lang="sr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C – Priroda</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16261B;--green:#24452F;--yellow:#F6C230;--paper:#ffffff;--soft:#F1F4EE;--muted:#5d6b60}
+*{box-sizing:border-box;margin:0}body{background:var(--paper);color:var(--ink);font:16px/1.6 "Manrope",sans-serif}
+.wrap{max-width:1260px;margin:auto;padding:0 28px}
+.top{background:var(--yellow);font-weight:700;font-size:14px;text-align:center;padding:9px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:18px}
+.brand{font:800 24px "Bricolage Grotesque";display:flex;gap:10px;align-items:center}.brand span{width:34px;height:34px;background:var(--yellow);border-radius:10px;display:grid;place-items:center;font-size:18px}
+nav{display:flex;gap:6px}nav a{padding:9px 16px;border-radius:99px;font-weight:600;font-size:15px}nav a.on{background:var(--soft)}
+.cart{background:var(--ink);color:#fff;border-radius:99px;padding:10px 20px;font-weight:700}
+.bento{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:300px 260px;gap:16px;margin-top:8px}
+.tile{border-radius:28px;overflow:hidden;position:relative;color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.tile:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#0009)}.tile>*{position:relative}
+.big{grid-row:span 2;background:url(../img/053.jpg) center/cover}
+h1{font:800 66px/.98 "Bricolage Grotesque";letter-spacing:-.03em}h1 mark{background:var(--yellow);color:var(--ink);padding:0 10px;border-radius:12px}
+.big p{max-width:28em;margin:16px 0 22px;font-size:17px;opacity:.92}
+.btn{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:800;padding:14px 24px;border-radius:99px;margin-right:10px}.ghost{background:#ffffff26;color:#fff}
+.t2{background:url(../img/041.jpg) center/cover}.t3{background:var(--green)}.t3:before{display:none}
+.t4{background:url(../img/049.jpg) center/cover;grid-column:span 2}
+.tile h3{font:700 26px/1.1 "Bricolage Grotesque"}.tile small{opacity:.85}
+.t3 .n{font:800 92px/1 "Bricolage Grotesque";color:var(--yellow)}
+.sec{padding:80px 0}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+h2{font:800 46px/1 "Bricolage Grotesque";letter-spacing:-.02em}
+.chips{display:flex;gap:8px}.chips span{border:1.5px solid #d8dfd5;border-radius:99px;padding:8px 16px;font-weight:600;font-size:14px}.chips .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--soft);border-radius:24px;padding:14px;}
+.card .im{height:230px;border-radius:18px;background:#fff;display:grid;place-items:center;position:relative}.card .im img{max-height:190px;max-width:80%}
+.tag{position:absolute;top:12px;left:12px;background:var(--yellow);font-weight:800;font-size:12px;padding:4px 10px;border-radius:99px}
+.card h4{font:700 20px "Bricolage Grotesque";margin:14px 6px 0}.card p{color:var(--muted);font-size:14px;margin:0 6px}
+.card .f{display:flex;justify-content:space-between;align-items:center;margin:14px 6px 4px;font-weight:800;font-size:18px}
+.plus{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;border:0;font-size:22px}
+</style></head><body>
+<div class="top">Poručite telefonom ili preko sajta – potvrđujemo svaku porudžbinu pozivom · 064 128 5796</div>
+<header><div class="wrap"><div class="brand"><span>🐝</span>Stanojević</div>
+<nav><a class="on">Početna</a><a>Prodavnica</a><a>Apitox sakupljač</a><a>Apikomora</a><a>Galerija</a><a>Kontakt</a></nav><span class="cart">🛒 0</span></div></header>
+<section class="wrap"><div class="bento">
+<div class="tile big"><h1>Pravi med.<br><mark>Prava</mark> priroda.</h1><p>Porodično pčelarstvo Stanojević – pčelinji proizvodi, kozmetika sa pčelinjim otrovom, apikomora i nagrađeni Apitox sakupljač.</p><div><a class="btn">U prodavnicu</a><a class="btn ghost">Upoznajte nas</a></div></div>
+<div class="tile t2"><h3>Apikomora</h3><small>Zdravlje iz košnice</small></div>
+<div class="tile t3"><div class="n">#1</div><h3>Najbolja inovacija</h3><small>Apitox sakupljač, državni sajam pčelarstva</small></div>
+<div class="tile t4"><h3>Med, polen, propolis, perga</h3><small>Sa našeg pčelinjaka</small></div>
+</div></section>
+<section class="sec wrap"><div class="head"><h2>Prodavnica</h2><div class="chips"><span class="on">Sve</span><span>Kozmetika</span><span>Med</span><span>Ostalo</span><span>Sakupljači</span></div></div>
+<div class="grid">
+<div class="card"><div class="im"><span class="tag">Novo</span><img src="../img/004.png"></div><h4>ApiFigura</h4><p>Krema sa pčelinjim otrovom</p><div class="f">0.000 din<button class="plus">+</button></div></div>
+<div class="card"><div class="im"><img src="../img/005.png"></div><h4>ApiSalus</h4><p>Pčelinje zdravlje</p><div class="f">0.000 din<button class="plus">+</button></div></div>
+<div class="card"><div class="im"><img src="../img/006.png"></div><h4>ProPolis krema</h4><p>Na bazi propolisa</p><div class="f">0.000 din<button class="plus">+</button></div></div>
+<div class="card"><div class="im"><img src="../img/017.jpg" style="max-height:none;max-width:none;width:100%;height:100%;object-fit:cover;border-radius:18px"></div><h4>Apitox sakupljač</h4><p>Komplet za sakupljanje otrova</p><div class="f">Na upit<button class="plus">+</button></div></div>
+</div></section>
+</body></html>
