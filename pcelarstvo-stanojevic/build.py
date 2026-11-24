@@ -11,6 +11,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 PHONE = "064 128 5796"
 PHONE_INTL = "+381641285796"
 EMAIL = "goxyst@mts.rs"
+PLACE = {"sr": "Smederevska Palanka, Srbija", "en": "Smederevska Palanka, Serbia"}
 
 # ---------------------------------------------------------------- icons
 IC = {
@@ -93,6 +94,7 @@ def page(lang, slug, title, desc, body, current=None):
  <div class="ct">
   <div>{IC['phone']}<a href="tel:{PHONE_INTL}">{PHONE}</a></div>
   <div>{IC['mail']}<a href="mailto:{EMAIL}">{EMAIL}</a></div>
+  <div>{IC['pin']}{PLACE[lang]}</div>
   <div><b>Goran Stanojević</b></div>
  </div>
  <div class="motto">{u['motto']}</div>
@@ -134,7 +136,7 @@ def home(lang):
                  f=["Prirodni med<br>i pčelinji proizvodi", "Apikomora –<br>zdravlje iz košnice",
                     "Sakupljanje<br>pčelinjeg otrova", "Nagrada za<br>najbolju inovaciju"],
                  about_s="O nama", about_h="Pčelarstvo sa tradicijom",
-                 about="Pčelarstvo Stanojević je porodično pčelarstvo koje vodi Goran Stanojević. Pored meda i ostalih "
+                 about="Pčelarstvo Stanojević je porodično pčelarstvo iz Smederevske Palanke, koje vodi Goran Stanojević. Pored meda i ostalih "
                        "pčelinjih proizvoda, bavimo se sakupljanjem pčelinjeg otrova, izradom sopstvenih Apitox "
                        "sakupljača nagrađenih na državnom sajmu pčelarstva, kozmetikom na bazi pčelinjeg otrova i "
                        "propolisa, kao i apikomorom – boravkom u vazduhu iz košnice.",
@@ -161,7 +163,7 @@ def home(lang):
                  f=["Natural honey<br>and bee products", "Api-chamber –<br>health from the hive",
                     "Bee venom<br>collection", "Award for<br>best innovation"],
                  about_s="About us", about_h="Beekeeping with tradition",
-                 about="Stanojević Beekeeping is a family apiary run by Goran Stanojević. Besides honey and other bee "
+                 about="Stanojević Beekeeping is a family apiary from Smederevska Palanka, run by Goran Stanojević. Besides honey and other bee "
                        "products, we collect bee venom, build our own Apitox venom collectors – awarded at the national "
                        "beekeeping fair – make cosmetics based on bee venom and propolis, and run an api-chamber where "
                        "visitors breathe the air from the hive.",
@@ -571,12 +573,12 @@ def galerija(lang):
 def kontakt(lang):
     if lang == "sr":
         bn = banner(lang, "054.jpg", "Kontakt", "Kontakt", "Pozovite nas ili pišite – rado ćemo odgovoriti.")
-        L = ("Telefon", "E-pošta", "Viber / WhatsApp", "Pišite nam")
+        L = ("Telefon", "E-pošta", "Viber / WhatsApp", "Mesto")
         desc = "Kontakt Pčelarstva Stanojević – Goran Stanojević, 064 128 5796, goxyst@mts.rs."
         title = "Kontakt"
     else:
         bn = banner(lang, "054.jpg", "Contact", "Contact", "Call or write to us – we will be happy to answer.")
-        L = ("Phone", "Email", "Viber / WhatsApp", "Write to us")
+        L = ("Phone", "Email", "Viber / WhatsApp", "Location")
         desc = "Contact Stanojević Beekeeping – Goran Stanojević, +381 64 128 5796, goxyst@mts.rs."
         title = "Contact"
     body = f"""{bn}
@@ -585,6 +587,7 @@ def kontakt(lang):
   <a class="cc" href="tel:{PHONE_INTL}">{hexi('phone')}{L[0]}<b>{PHONE}</b></a>
   <a class="cc" href="mailto:{EMAIL}">{hexi('mail')}{L[1]}<b>{EMAIL}</b></a>
   <a class="cc" href="https://wa.me/{PHONE_INTL[1:]}">{hexi('chat')}{L[2]}<b>{PHONE}</b></a>
+  <a class="cc" href="https://maps.google.com/?q=Smederevska+Palanka" target="_blank" rel="noopener">{hexi('pin')}{L[3]}<b>{PLACE[lang]}</b></a>
  </div>
  <p style="text-align:center;margin-top:40px;font:italic 500 22px Lora,serif">Goran Stanojević</p>
 </div></section>"""

@@ -223,7 +223,7 @@ textarea{min-height:90px;resize:vertical}
 .wa{display:inline-flex;gap:8px;align-items:center;font-weight:800;color:#1f7a3c;margin-top:14px}
 
 /* contact */
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .cc{background:var(--wood);color:var(--cream);border-radius:20px;padding:28px;text-align:center}
 .cc .hexi{margin:0 auto 14px}
 .cc b{display:block;font:700 22px "Lora",serif;color:var(--gold2);margin-top:4px;word-break:break-word}
@@ -258,7 +258,7 @@ footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-ite
   .pd .ph{position:static}
   footer .wrap{grid-template-columns:1fr;text-align:center}
   footer .logo{justify-content:center}.ct div{justify-content:center}.motto{text-align:center}
-  .cgrid{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
   .wrap{padding:0 16px}
@@ -278,7 +278,7 @@ footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-ite
   .photos img{width:110px;height:100px;border-width:5px}
   .hx .h{width:110px;height:125px}.hx .h div{width:102px;height:117px}
   .hexes{gap:14px}
-  .pair,.two{grid-template-columns:1fr}
+  .pair,.two,.cgrid{grid-template-columns:1fr}
   .awardbox{grid-template-columns:1fr}
   .stats{flex-direction:column}
   .line{grid-template-columns:52px 1fr auto;}
