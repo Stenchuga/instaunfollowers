@@ -22,7 +22,7 @@ SEO_TITLE = {
     ("en", "prodavnica"): "Shop – honey, propolis and bee venom creams | Stanojević Beekeeping",
     ("sr", "apitox-sakupljac"): "Apitox sakupljač pčelinjeg otrova – nagrađena inovacija | Pčelarstvo Stanojević",
     ("en", "apitox-sakupljac"): "Apitox bee venom collector – award-winning device | Stanojević Beekeeping",
-    ("sr", "apikomora"): "Apikomora – inhalacija vazduhom iz košnice, Smederevska Palanka | Pčelarstvo Stanojević",
+    ("sr", "apikomora"): "Apikomora na jezeru Kudreč – Smederevska Palanka | Pčelarstvo Stanojević",
     ("en", "apikomora"): "Api-chamber – breathing beehive air, Serbia | Stanojević Beekeeping",
     ("sr", "apifigura"): "ApiFigura – krema sa pčelinjim otrovom protiv bora | Pčelarstvo Stanojević",
     ("en", "apifigura"): "ApiFigura – anti-wrinkle cream with bee venom | Stanojević Beekeeping",
@@ -211,7 +211,8 @@ ARTICLES = {
              "Agroklub", "",
              "Smederevska Palanka: otvorena prva prirodna apikomora",
              "Smederevska Palanka: the first natural api-chamber opens",
-             "", ""),
+             "Na ideju da izgradi prvu apikomoru u centralnoj Srbiji došao je pre svega zbog želje da pomogne osobama koje imaju respiratorne probleme ili su izložene stresu.",
+             "He decided to build the first api-chamber in central Serbia above all to help people with breathing problems or those under stress."),
 }
 
 
@@ -282,7 +283,7 @@ def home(lang):
                       ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
                  shop="Pogledajte prodavnicu",
                  serv_s="Šta još radimo", serv_h="Naše usluge",
-                 serv=[("house", "Apikomora", "Inhalacija i ležanje nad košnicama, od aprila do avgusta", "apikomora"),
+                 serv=[("house", "Apikomora", "Prva prirodna apikomora u centralnoj Srbiji, na jezeru Kudreč", "apikomora"),
                        ("frame", "Apitox sakupljač", "Nagrađeni uređaj za sakupljanje pčelinjeg otrova", "apitox-sakupljac"),
                        ("people", "Posete i predavanja", "Škole, studenti i pčelari iz zemlje i inostranstva", "galerija")],
                  gal_h="Galerija", gal_p="Naši pčelinjaci, apikomora i druženja", gal_b="Otvorite galeriju",
@@ -311,7 +312,7 @@ def home(lang):
                       ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
                  shop="Visit the shop",
                  serv_s="What else we do", serv_h="Our services",
-                 serv=[("house", "Api-chamber", "Breathing hive air and lying above the hives, April to August", "apikomora"),
+                 serv=[("house", "Api-chamber", "The first natural api-chamber in central Serbia, at Lake Kudreč", "apikomora"),
                        ("frame", "Apitox collector", "Award-winning device for collecting bee venom", "apitox-sakupljac"),
                        ("people", "Visits and lectures", "Schools, students and beekeepers from home and abroad", "galerija")],
                  gal_h="Gallery", gal_p="Our apiaries, the api-chamber and meetings", gal_b="Open the gallery",
@@ -610,10 +611,11 @@ def apitox(lang):
 def apikomora(lang):
     F = lambda i, c="": fig(lang, i, c)
     if lang == "sr":
-        bn = banner(lang, "041.jpg", "Apiterapija", "Apikomora", "Zdravlje iz košnice – inhalacija i ležanje nad košnicama.")
+        bn = banner(lang, "041.jpg", "Apiterapija", "Apikomora", "Prva prirodna apikomora u centralnoj Srbiji – na jezeru Kudreč kod Smederevske Palanke.")
         stats = [("april – avgust", "sezona tretmana"), ("10–20 min", "inhalacija"), ("30–60 min", "ležanje nad košnicama")]
         S = f"""
 <h2>Apikomora – zdravlje iz košnice</h2>
+<p><strong>Naša apikomora nalazi se na jezeru Kudreč kod Smederevske Palanke – prva prirodna apikomora u centralnoj Srbiji.</strong> Goran je njenu izgradnju planirao nekoliko godina, sa željom da osobama koje imaju tegobe sa disanjem ili su izložene stresu omogući da se na sasvim prirodan način, uz pčele, opuste i okrepe.</p>
 <p>Etarska isparenja propolisa, meda, voska, matičnog mleča i perge, kao i aromatične materije cvetova, nektara i voska koje se oslobađaju iz košnice naseljene pčelama, ispunjavaju vazduh oko pčelinjaka. Boravak u takvom okruženju mnogi doživljavaju kao opuštajući i okrepljujući – bolje spavaju, imaju bolji apetit i raspoloženje. Tretmani u apikomori su noviji pravac u apiterapiji, tradicionalnoj metodi koja koristi pčelinje proizvode.</p>
 <p>Apikomora je drvena kućica koja služi za inhalaciju vazduha iz košnice ili za ležanje nad košnicama, pri čemu osobe unutra nemaju direktan kontakt sa pčelama. Obe metode primenjuju se od aprila do polovine avgusta, kada su pčele aktivne. Košnice koje se koriste u ovu svrhu moraju imati jaka i zdrava pčelinja društva, i u periodu inhalacija ne tretiraju se protiv varoe hemijskim sredstvima. Protiv varoe se borimo isključivo prirodnim putem – ramom građevnjakom, a kasnije organskim kiselinama.</p>
 <div class="pair">{F("042.jpg")}{F("043.jpg")}</div>
@@ -642,13 +644,14 @@ def apikomora(lang):
         caps = [("045.jpg", "Poseta đaka i profesora OŠ „Olga Milošević“"), ("046.jpg", "Poseta studenata i profesora iz Holandije"),
                 ("047.jpg", "Poseta kolega pčelara iz Slovenije"), ("048.jpg", "Poseta kolega pčelara iz Slovenije")]
         cta = ("Zakažite termin", "Termine u apikomori dogovaramo telefonom.")
-        desc = "Apikomora u Smederevskoj Palanci – inhalacija vazduhom iz košnice i ležanje nad košnicama, od aprila do avgusta. Zakažite termin: 064 128 5796."
+        desc = "Prva prirodna apikomora u centralnoj Srbiji, na jezeru Kudreč kod Smederevske Palanke – inhalacija vazduhom iz košnice i ležanje nad košnicama. Zakažite: 064 128 5796."
         title = "Apikomora"
     else:
-        bn = banner(lang, "041.jpg", "Apitherapy", "Api-chamber", "Health from the hive – breathing hive air and lying above the hives.")
+        bn = banner(lang, "041.jpg", "Apitherapy", "Api-chamber", "The first natural api-chamber in central Serbia – at Lake Kudreč near Smederevska Palanka.")
         stats = [("April – August", "session season"), ("10–20 min", "breathing hive air"), ("30–60 min", "lying above the hives")]
         S = f"""
 <h2>Api-chamber – health from the hive</h2>
+<p><strong>Our api-chamber is at Lake Kudreč near Smederevska Palanka – the first natural api-chamber in central Serbia.</strong> Goran planned it for several years, wanting to give people with breathing problems or under stress a completely natural way to relax and recharge with the bees.</p>
 <p>The aromatic vapours of propolis, honey, wax, royal jelly and bee bread, together with the scents of flowers, nectar and wax released from a hive full of bees, fill the air around the apiary. Many people find time spent in this environment relaxing and refreshing – they sleep better and their appetite and mood improve. Api-chamber sessions are a newer branch of apitherapy, a traditional practice that uses bee products.</p>
 <p>The api-chamber is a small wooden house used for breathing air from the hive or for lying above the hives, with no direct contact with the bees. Both are offered from April to mid-August, when the bees are active. The hives used for this must hold strong, healthy colonies, and they are not treated against varroa with chemicals while sessions are running. We fight varroa only by natural means – with a drone comb frame, and later with organic acids.</p>
 <div class="pair">{F("042.jpg")}{F("043.jpg")}</div>
@@ -677,7 +680,7 @@ def apikomora(lang):
         caps = [("045.jpg", "Visit by pupils and teachers of “Olga Milošević” Primary School"), ("046.jpg", "Visit by students and professors from the Netherlands"),
                 ("047.jpg", "Visit by fellow beekeepers from Slovenia"), ("048.jpg", "Visit by fellow beekeepers from Slovenia")]
         cta = ("Book a session", "Api-chamber sessions are booked by phone.")
-        desc = "The Stanojević api-chamber – breathing hive air and lying above the hives, April to August."
+        desc = "The first natural api-chamber in central Serbia, at Lake Kudreč near Smederevska Palanka – breathing hive air and lying above the hives, April to August."
         title = "Api-chamber"
     st = "".join(f"<div><b>{v}</b><span>{k}</span></div>" for v, k in stats)
     body = f"""{bn}
