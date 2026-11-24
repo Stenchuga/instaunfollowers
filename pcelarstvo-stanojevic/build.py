@@ -12,6 +12,48 @@ PHONE = "064 128 5796"
 PHONE_INTL = "+381641285796"
 EMAIL = "goxyst@mts.rs"
 PLACE = {"sr": "Smederevska Palanka, Srbija", "en": "Smederevska Palanka, Serbia"}
+SITE = "https://www.pcelarstvo-stanojevic.com"
+
+# Google titles (what shows up as the blue link in search results)
+SEO_TITLE = {
+    ("sr", "index"): "Pčelarstvo Stanojević – med, pčelinji otrov i apikomora | Smederevska Palanka",
+    ("en", "index"): "Stanojević Beekeeping – honey, bee venom and api-chamber | Serbia",
+    ("sr", "prodavnica"): "Prodavnica – med, propolis i kreme sa pčelinjim otrovom | Pčelarstvo Stanojević",
+    ("en", "prodavnica"): "Shop – honey, propolis and bee venom creams | Stanojević Beekeeping",
+    ("sr", "apitox-sakupljac"): "Apitox sakupljač pčelinjeg otrova – nagrađena inovacija | Pčelarstvo Stanojević",
+    ("en", "apitox-sakupljac"): "Apitox bee venom collector – award-winning device | Stanojević Beekeeping",
+    ("sr", "apikomora"): "Apikomora – inhalacija vazduhom iz košnice, Smederevska Palanka | Pčelarstvo Stanojević",
+    ("en", "apikomora"): "Api-chamber – breathing beehive air, Serbia | Stanojević Beekeeping",
+    ("sr", "apifigura"): "ApiFigura – krema sa pčelinjim otrovom protiv bora | Pčelarstvo Stanojević",
+    ("en", "apifigura"): "ApiFigura – anti-wrinkle cream with bee venom | Stanojević Beekeeping",
+    ("sr", "apisalus"): "ApiSalus – krema sa pčelinjim otrovom | Pčelarstvo Stanojević",
+    ("en", "apisalus"): "ApiSalus – bee venom cream | Stanojević Beekeeping",
+    ("sr", "propolis-krema"): "ProPolis krema – mast od propolisa | Pčelarstvo Stanojević",
+    ("en", "propolis-krema"): "ProPolis cream – propolis ointment | Stanojević Beekeeping",
+}
+NOINDEX = {"korpa"}
+
+
+def url(lang, slug):
+    path = "" if slug == "index" else f"{slug}.html"
+    return f"{SITE}/{'en/' if lang == 'en' else ''}{path}"
+
+
+def jsonld(data):
+    import json
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
+def business_ld(lang):
+    return jsonld({
+        "@context": "https://schema.org", "@type": "LocalBusiness",
+        "name": "Pčelarstvo Stanojević", "alternateName": "Stanojević Beekeeping",
+        "description": "Porodično pčelarstvo – med, pčelinji proizvodi, kozmetika sa pčelinjim otrovom, apikomora i Apitox sakupljač pčelinjeg otrova.",
+        "url": SITE + "/", "image": SITE + "/img/054.jpg", "logo": SITE + "/img/001.png",
+        "telephone": PHONE_INTL, "email": EMAIL, "founder": {"@type": "Person", "name": "Goran Stanojević"},
+        "address": {"@type": "PostalAddress", "addressLocality": "Smederevska Palanka", "addressCountry": "RS"},
+        "areaServed": "RS", "priceRange": "RSD",
+    })
 
 # ---------------------------------------------------------------- icons
 IC = {
@@ -52,7 +94,7 @@ UI = {
 }
 
 
-def page(lang, slug, title, desc, body, current=None):
+def page(lang, slug, title, desc, body, current=None, ld="", image="054.jpg"):
     u = UI[lang]
     b = "" if lang == "sr" else "../"          # path back to site root (assets, img)
     here = "" if lang == "sr" else ""           # pages of same language are siblings
@@ -63,7 +105,7 @@ def page(lang, slug, title, desc, body, current=None):
     en_on = ' class="on"' if lang == "en" else ""
     lang_sw = (f'<a{sr_on} href="{"" if lang == "sr" else "../"}{slug}.html" hreflang="sr">SR</a> | '
                f'<a{en_on} href="{"en/" if lang == "sr" else ""}{slug}.html" hreflang="en">EN</a>')
-    full_title = u["site"] if slug == "index" else f"{title} – {u['site']}"
+    full_title = SEO_TITLE.get((lang, slug)) or (u["site"] if slug == "index" else f"{title} – {u['site']}")
     alt_sr = f"{'' if lang == 'sr' else '../'}{slug}.html"
     return f"""<!doctype html>
 <html lang="{lang}">
@@ -72,8 +114,20 @@ def page(lang, slug, title, desc, body, current=None):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{full_title}</title>
 <meta name="description" content="{desc}">
-<link rel="alternate" hreflang="sr" href="{alt_sr}">
-<link rel="alternate" hreflang="en" href="{other if lang == 'sr' else slug + '.html'}">
+{'<meta name="robots" content="noindex">' if slug in NOINDEX else ''}
+<link rel="canonical" href="{url(lang, slug)}">
+<link rel="alternate" hreflang="sr" href="{url('sr', slug)}">
+<link rel="alternate" hreflang="en" href="{url('en', slug)}">
+<link rel="alternate" hreflang="x-default" href="{url('sr', slug)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{u['site']}">
+<meta property="og:title" content="{full_title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url(lang, slug)}">
+<meta property="og:image" content="{SITE}/img/{image}">
+<meta property="og:locale" content="{'sr_RS' if lang == 'sr' else 'en_US'}">
+<meta name="twitter:card" content="summary_large_image">
+{ld}
 <link rel="icon" href="{b}img/001.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -156,7 +210,7 @@ def home(lang):
                        ("people", "Posete i predavanja", "Škole, studenti i pčelari iz zemlje i inostranstva", "galerija")],
                  gal_h="Galerija", gal_p="Naši pčelinjaci, apikomora i druženja", gal_b="Otvorite galeriju",
                  award="Prvo mesto na državnom sajmu pčelarstva za najbolju inovaciju")
-        desc = "Porodično pčelarstvo Stanojević – med, pčelinji proizvodi, kozmetika sa pčelinjim otrovom, apikomora i Apitox sakupljač."
+        desc = "Porodično pčelarstvo iz Smederevske Palanke – domaći med, polen, propolis, matični mleč, kreme sa pčelinjim otrovom, apikomora i nagrađeni Apitox sakupljač."
     else:
         t = dict(kick="Tradition, nature and quality", h1="Stanojević<br>Beekeeping",
                  s="Health from the hive,<br>straight from our apiary.", cta="See our products",
@@ -183,7 +237,7 @@ def home(lang):
                        ("people", "Visits and lectures", "Schools, students and beekeepers from home and abroad", "galerija")],
                  gal_h="Gallery", gal_p="Our apiaries, the api-chamber and meetings", gal_b="Open the gallery",
                  award="First place at the national beekeeping fair for best innovation")
-        desc = "Stanojević family beekeeping – honey, bee products, bee venom cosmetics, api-chamber and the Apitox collector."
+        desc = "Family apiary from Smederevska Palanka, Serbia – honey, pollen, propolis, royal jelly, bee venom creams, api-chamber and the award-winning Apitox collector."
 
     feats = "".join(f'<div class="f">{hexi(i)}<span>{x}</span></div>'
                     for i, x in zip(["comb", "house", "bee", "award"], t["f"]))
@@ -236,7 +290,7 @@ def home(lang):
  <a class="award" href="apitox-sakupljac.html"><img src="{b}img/011.jpg" alt=""><div><div class="kick left" style="margin-bottom:8px">Apitox</div><b>{t['award']}</b></div></a>
 </div></section>
 """
-    return page(lang, "index", "", desc, body)
+    return page(lang, "index", "", desc, body, ld=business_ld(lang), image="055.jpg")
 
 
 # ================================================================ SHOP
@@ -345,7 +399,12 @@ def cream(lang, slug):
   <p class="small">{L[3]}</p>
  </div>
 </div></div></section>"""
-    return page(lang, slug, t["name"], t["lead"][:150], body, current="prodavnica")
+    ld = jsonld({"@context": "https://schema.org", "@type": "Product", "name": t["name"],
+                 "image": f"{SITE}/img/{d['img']}", "description": t["lead"],
+                 "brand": {"@type": "Brand", "name": "ApitoxCosmetics"},
+                 "manufacturer": {"@type": "Organization", "name": "Pčelarstvo Stanojević"}})
+    desc = (t["lead"][:155].rsplit(" ", 1)[0] + "…") if len(t["lead"]) > 155 else t["lead"]
+    return page(lang, slug, t["name"], desc, body, current="prodavnica", ld=ld, image=d["img"])
 
 
 # ================================================================ APITOX
@@ -491,7 +550,7 @@ def apikomora(lang):
         caps = [("045.jpg", "Poseta đaka i profesora OŠ „Olga Milošević“"), ("046.jpg", "Poseta studenata i profesora iz Holandije"),
                 ("047.jpg", "Poseta kolega pčelara iz Slovenije"), ("048.jpg", "Poseta kolega pčelara iz Slovenije")]
         cta = ("Zakažite termin", "Termine u apikomori dogovaramo telefonom.")
-        desc = "Apikomora Pčelarstva Stanojević – inhalacija vazduha iz košnice i ležanje nad košnicama, od aprila do avgusta."
+        desc = "Apikomora u Smederevskoj Palanci – inhalacija vazduhom iz košnice i ležanje nad košnicama, od aprila do avgusta. Zakažite termin: 064 128 5796."
         title = "Apikomora"
     else:
         bn = banner(lang, "041.jpg", "Apitherapy", "Api-chamber", "Health from the hive – breathing hive air and lying above the hives.")
@@ -653,6 +712,35 @@ def main():
             open(os.path.join(out, slug + ".html"), "w", encoding="utf-8").write(fn(lang))
         for slug in CREAMS:
             open(os.path.join(out, slug + ".html"), "w", encoding="utf-8").write(cream(lang, slug))
+    slugs = ["index", "prodavnica", "apifigura", "apisalus", "propolis-krema",
+             "apitox-sakupljac", "apikomora", "galerija", "kontakt"]
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for lang in ("sr", "en"):
+        for sl in slugs:
+            sm.append(f"<url><loc>{url(lang, sl)}</loc>"
+                      f'<xhtml:link rel="alternate" hreflang="sr" href="{url("sr", sl)}"/>'
+                      f'<xhtml:link rel="alternate" hreflang="en" href="{url("en", sl)}"/></url>')
+    sm.append("</urlset>")
+    open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm) + "\n")
+    open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nDisallow: /korpa.html\nDisallow: /en/korpa.html\n\nSitemap: {SITE}/sitemap.xml\n")
+    # old Google Sites addresses -> new pages (keeps existing Google ranking)
+    from urllib.parse import quote
+    old = [("/početna", "/"), ("/apitoxcosmetics", "/prodavnica.html"), ("/ostali-proizvodi", "/prodavnica.html"),
+           ("/apitox-sakupljači", "/apitox-sakupljac.html"),
+           ("/apitox-sakupljači/tehnologija", "/apitox-sakupljac.html#tehnologija"),
+           ("/apitox-sakupljači/tehnologija/kolektor-u-izradi-gorana-stanojevića", "/apitox-sakupljac.html#kolektor"),
+           ("/apitox-sakupljači/tehnika-skupljanja", "/apitox-sakupljac.html#tehnika"),
+           ("/apitox-sakupljači/princip-rada", "/apitox-sakupljac.html#princip"),
+           ("/apitox-sakupljači/slike-sakupljača", "/apitox-sakupljac.html#slike"),
+           ("/api-komora", "/apikomora.html"), ("/galerija", "/galerija.html"),
+           ("/apifigura", "/apifigura.html"), ("/apisalus", "/apisalus.html"), ("/propolis-krema", "/propolis-krema.html")]
+    lines = []
+    for a, b in old:
+        lines.append(f"{quote(a)}  {b}  301")
+        if quote(a) != a:
+            lines.append(f"{a}  {b}  301")
+    open(os.path.join(ROOT, "_redirects"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
     print("OK")
 
 

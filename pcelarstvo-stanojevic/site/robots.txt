@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /korpa.html
+Disallow: /en/korpa.html
+
+Sitemap: https://www.pcelarstvo-stanojevic.com/sitemap.xml
