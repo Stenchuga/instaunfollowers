@@ -1,0 +1,161 @@
+<!doctype html><html lang="sr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pčelarstvo Stanojević</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--wood:#3a2412;--wood2:#2a190b;--gold:#E9B44C;--gold2:#F6D58A;--cream:#F6EBD3;--paper:#EFE0BF;--ink:#3b2714;--muted:#6e5638}
+*{box-sizing:border-box;margin:0}
+body{font:16px/1.6 "Nunito Sans",sans-serif;color:var(--ink);background:var(--wood2)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:auto;padding:0 32px}
+/* wood texture made with gradients */
+.wood{background:
+  repeating-linear-gradient(180deg,#ffffff06 0 2px,transparent 2px 9px),
+  repeating-linear-gradient(178deg,#00000018 0 1px,transparent 1px 23px),
+  linear-gradient(180deg,#4a2e16,#2e1b0b 60%,#3c2512);color:var(--cream)}
+.paper{background:
+  radial-gradient(ellipse at 20% 10%,#fff8e6 0,transparent 60%),
+  radial-gradient(ellipse at 90% 90%,#e2cc9f 0,transparent 55%),var(--paper)}
+.ser{font-family:"Lora",serif}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#F3C766,#DFA236);color:#3a2207;font-weight:800;padding:13px 26px;border-radius:99px;box-shadow:0 4px 0 #a86f17,0 10px 20px #0004;font-size:15px}
+.btn:after{content:"›";font-size:20px;line-height:0}
+.btn.o{background:none;border:2px solid var(--gold);color:var(--gold2);box-shadow:none}
+.kick{display:flex;align-items:center;gap:14px;color:var(--gold);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.kick:before,.kick:after{content:"";width:46px;height:1px;background:currentColor}
+.hexi{width:64px;height:72px;flex:none;display:grid;place-items:center;
+  background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.hexi i{width:58px;height:66px;display:grid;place-items:center;background:var(--wood);clip-path:inherit}
+.hexi svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.6}
+/* header */
+header{position:absolute;inset:0 0 auto;z-index:5;background:linear-gradient(#1c1006ee,#1c100600)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+.logo{display:flex;align-items:center;gap:12px}.logo img{height:58px;border-radius:10px}
+.logo b{font:700 26px/1 "Lora";color:var(--gold2)}.logo small{display:block;font:600 15px "Lora";color:var(--gold)}
+nav{display:flex;gap:28px;font-weight:700;font-size:15px;color:var(--cream)}nav a.on{color:var(--gold);box-shadow:0 3px 0 var(--gold)}
+.hr{display:flex;gap:14px;align-items:center}
+.lang{font-weight:800;font-size:13px;color:var(--cream)}.lang b{color:var(--gold)}
+.cart{border:2px solid var(--gold);color:var(--gold2);border-radius:99px;padding:9px 18px;font-weight:800;font-size:14px;display:flex;gap:8px}
+/* hero */
+.hero{min-height:640px;display:flex;align-items:center;position:relative;color:var(--cream);
+  background:linear-gradient(90deg,#1e1207 0%,#1e1207d0 34%,#1e120700 70%),linear-gradient(0deg,#1e1207aa,transparent 40%),url(../img/055.jpg) center 40%/cover}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,#f5b84230,transparent 55%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-top:60px}
+.hero h1{font:600 80px/1 "Lora";margin:22px 0 18px;color:#FFF3DA;text-shadow:0 4px 30px #0008}
+.hero p.s{font:italic 500 32px/1.25 "Lora";color:var(--gold2);margin-bottom:34px}
+/* features */
+.feat .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-block:30px}
+.f{display:flex;gap:16px;align-items:center;padding:0 22px;border-left:1px solid #ffffff22}.f:first-child{border:0}
+.f span{font:500 16px/1.35 "Lora"}
+/* about */
+.about .wrap{display:grid;grid-template-columns:440px 1fr;gap:70px;align-items:center;padding-block:80px}
+.polaroid{background:#fff;padding:12px 12px 14px;box-shadow:0 18px 40px #3b271455;transform:rotate(-4deg)}
+.polaroid img{width:100%;height:300px;object-fit:cover;display:block}
+h2{font:700 40px/1.1 "Lora"}.sub{font:italic 500 20px "Lora";color:var(--muted)}
+.about p{margin:18px 0 26px;font-size:17px;max-width:36em}
+/* products */
+.prod{position:relative;padding:90px 0;color:var(--cream);
+  background:linear-gradient(90deg,#1e1207ee 0,#1e1207aa 40%,#1e1207ee),url(../img/049.jpg) center/cover}
+.prod .head{text-align:center}.prod .head h2{color:var(--gold2)}.prod .head .sub{color:var(--cream);opacity:.8}
+.hexes{display:flex;justify-content:center;gap:26px;margin:44px 0 40px;flex-wrap:wrap}
+.hx{text-align:center;font:600 17px "Lora"}
+.hx .h{width:150px;height:170px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;margin-bottom:12px;transition:transform .2s}
+.hx .h div{width:140px;height:160px;clip-path:inherit;background:#2a190b center/cover}
+.hx:hover .h{transform:translateY(-6px)}
+.cos{display:flex;justify-content:center;gap:22px;flex-wrap:wrap}
+.c{background:#ffffff0d;border:1px solid #e9b44c55;border-radius:18px;padding:18px 22px;display:flex;gap:16px;align-items:center;width:330px}
+.c img{width:84px;height:84px;object-fit:contain}.c b{font:700 20px "Lora";color:var(--gold2)}.c small{display:block;opacity:.8}
+/* services */
+.serv{display:grid;grid-template-columns:1.2fr 1fr}
+.serv .l{padding:80px 50px 80px max(32px,calc((100vw - 1200px)/2 + 32px))}
+.serv .r{background:linear-gradient(90deg,var(--paper),transparent 25%),url(../img/051.jpg) center/cover}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);margin-top:34px}
+.sv{text-align:center;padding:0 18px;border-left:1px solid #3b271422}.sv:first-child{border:0}
+.sv .hexi{margin:0 auto 14px}.sv h3{font:700 19px/1.2 "Lora";margin-bottom:6px}.sv p{font-size:14px;color:var(--muted)}
+/* gallery + award */
+.ga .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:center;padding-block:60px}
+.photos{display:flex;align-items:center}
+.photos img{width:180px;height:150px;object-fit:cover;border:8px solid #fff;box-shadow:0 12px 30px #0008}
+.photos img:nth-child(1){transform:rotate(-6deg)}.photos img:nth-child(2){transform:rotate(3deg) scale(1.12);margin:0 -18px;z-index:1;position:relative}.photos img:nth-child(3){transform:rotate(7deg)}
+.ga h2{color:var(--gold2);font-size:30px}.ga p{opacity:.85;margin:6px 0 18px}
+.award{display:flex;gap:22px;align-items:center;border-left:1px solid #ffffff22;padding-left:50px}
+.award img{width:120px;height:150px;object-fit:cover;border-radius:12px;border:3px solid var(--gold)}
+.award b{font:700 20px/1.3 "Lora";color:var(--gold2)}
+/* footer */
+footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-items:center;padding-block:40px;border-top:1px solid #ffffff1a}
+.ct div{display:flex;gap:12px;margin:6px 0}.ct svg{width:18px;stroke:var(--gold);fill:none;stroke-width:2}
+.motto{font:italic 500 26px/1.3 "Lora";color:var(--gold2);text-align:right;transform:rotate(-3deg)}
+.copy{text-align:center;font-size:13px;opacity:.6;padding:14px}
+</style></head><body>
+
+<header><div class="wrap">
+ <a class="logo"><img src="../img/001.png" alt=""><span><small>Pčelarstvo</small><b>Stanojević</b></span></a>
+ <nav><a class="on">Početna</a><a>O nama</a><a>Prodavnica</a><a>Apitox sakupljač</a><a>Apikomora</a><a>Galerija</a><a>Kontakt</a></nav>
+ <div class="hr"><span class="lang"><b>SR</b> | EN</span><a class="cart">🛒 Korpa (0)</a></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+ <div class="kick">Tradicija, priroda i kvalitet</div>
+ <h1>Pčelarstvo<br>Stanojević</h1>
+ <p class="s">Zdravlje iz košnice,<br>pravo sa našeg pčelinjaka.</p>
+ <a class="btn">Pogledajte proizvode</a>
+</div></section>
+
+<section class="feat wood"><div class="wrap">
+ <div class="f"><span class="hexi"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="5" cy="9" r="3"/><circle cx="19" cy="9" r="3"/><circle cx="5" cy="16" r="3"/><circle cx="19" cy="16" r="3"/></svg></i></span><span>Prirodni med<br>i pčelinji proizvodi</span></div>
+ <div class="f"><span class="hexi"><i><svg viewBox="0 0 24 24"><path d="M4 20 12 4l8 16z"/><path d="M8 20v-5h8v5"/></svg></i></span><span>Apikomora –<br>zdravlje iz košnice</span></div>
+ <div class="f"><span class="hexi"><i><svg viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="4" ry="6"/><path d="M8 11h8M8 15h8M12 7V4M9 4l3 3 3-3"/><path d="M8 10C4 6 2 9 4 11s4 0 4 0M16 10c4-4 6-1 4 1s-4 0-4 0"/></svg></i></span><span>Sakupljanje<br>pčelinjeg otrova</span></div>
+ <div class="f"><span class="hexi"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m9 9 2 2 4-4M8 14l-2 7 6-3 6 3-2-7"/></svg></i></span><span>Nagrada za<br>najbolju inovaciju</span></div>
+</div></section>
+
+<section class="about paper"><div class="wrap">
+ <div class="polaroid"><img src="../img/054.jpg" alt="Naš pčelinjak"></div>
+ <div><div class="sub">O nama</div><h2>Pčelarstvo sa tradicijom</h2>
+ <p>Pčelarstvo Stanojević je porodično pčelarstvo koje vodi Goran Stanojević. Pored meda i ostalih pčelinjih proizvoda, bavimo se sakupljanjem pčelinjeg otrova, izradom sopstvenih Apitox sakupljača, kozmetikom na bazi pčelinjeg otrova i propolisa, kao i apikomorom.</p>
+ <a class="btn">Više o nama</a></div>
+</div></section>
+
+<section class="prod"><div class="wrap">
+ <div class="head"><h2>Naši proizvodi</h2><div class="sub">Prirodni proizvodi sa našeg pčelinjaka</div></div>
+ <div class="hexes">
+  <a class="hx"><div class="h"><div style="background-image:url(../img/049.jpg);background-position:72% 30%;background-size:420%"></div></div>Med</a>
+  <a class="hx"><div class="h"><div style="background-image:url(../img/049.jpg);background-position:12% 40%;background-size:420%"></div></div>Polen</a>
+  <a class="hx"><div class="h"><div style="background-image:url(../img/049.jpg);background-position:45% 70%;background-size:380%"></div></div>Propolis</a>
+  <a class="hx"><div class="h"><div style="background-image:url(../img/049.jpg);background-position:90% 60%;background-size:420%"></div></div>Matični mleč</a>
+  <a class="hx"><div class="h"><div style="background-image:url(../img/033.jpg)"></div></div>Pčelinji otrov</a>
+ </div>
+ <div class="cos">
+  <a class="c"><img src="../img/004.png"><span><b>ApiFigura</b><small>Krema sa pčelinjim otrovom</small></span></a>
+  <a class="c"><img src="../img/005.png"><span><b>ApiSalus</b><small>Pčelinje zdravlje</small></span></a>
+  <a class="c"><img src="../img/006.png"><span><b>ProPolis</b><small>Krema na bazi propolisa</small></span></a>
+ </div>
+ <div style="text-align:center;margin-top:36px"><a class="btn">Pogledajte prodavnicu</a></div>
+</div></section>
+
+<section class="serv paper">
+ <div class="l"><div class="sub">Šta još radimo</div><h2>Naše usluge</h2>
+  <div class="cards">
+   <div class="sv"><span class="hexi"><i><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/></svg></i></span><h3>Apikomora</h3><p>Inhalacija i ležanje nad košnicama, od aprila do avgusta</p></div>
+   <div class="sv"><span class="hexi"><i><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M4 10h16M4 14h16M8 6v12M12 6v12M16 6v12"/></svg></i></span><h3>Apitox sakupljač</h3><p>Nagrađeni uređaj za sakupljanje pčelinjeg otrova</p></div>
+   <div class="sv"><span class="hexi"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 14c3 0 6 2 6 5"/></svg></i></span><h3>Posete i predavanja</h3><p>Škole, studenti i pčelari iz zemlje i inostranstva</p></div>
+  </div>
+ </div>
+ <div class="r"></div>
+</section>
+
+<section class="ga wood"><div class="wrap">
+ <div style="display:flex;gap:40px;align-items:center">
+  <div style="min-width:200px"><h2>Galerija</h2><p>Naši pčelinjaci, apikomora i druženja</p><a class="btn">Otvorite galeriju</a></div>
+  <div class="photos"><img src="../img/053.jpg"><img src="../img/042.jpg"><img src="../img/056.jpg"></div>
+ </div>
+ <div class="award"><img src="../img/011.jpg"><div><div class="kick" style="margin-bottom:8px">Apitox</div><b>Prvo mesto na državnom sajmu pčelarstva za najbolju inovaciju</b></div></div>
+</div></section>
+
+<footer class="wood"><div class="wrap">
+ <a class="logo"><img src="../img/001.png" alt=""><span><small>Pčelarstvo</small><b>Stanojević</b></span></a>
+ <div class="ct">
+  <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>064 128 5796</div>
+  <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>goxyst@mts.rs</div>
+  <div><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Mesto, Srbija (dopuniti)</div>
+ </div>
+ <div class="motto">Zdravlje iz košnice…</div>
+</div><div class="copy">© 2026 Pčelarstvo Stanojević</div></footer>
+</body></html>
