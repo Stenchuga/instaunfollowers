@@ -31,6 +31,8 @@ SEO_TITLE = {
     ("sr", "propolis-krema"): "ProPolis krema – mast od propolisa | Pčelarstvo Stanojević",
     ("en", "propolis-krema"): "ProPolis cream – propolis ointment | Stanojević Beekeeping",
 }
+SEO_TITLE[("sr", "mediji")] = "U medijima – RTS, BBC, Agroklub, Moje selo | Pčelarstvo Stanojević"
+SEO_TITLE[("en", "mediji")] = "In the media – RTS, BBC, Agroklub | Stanojević Beekeeping"
 NOINDEX = {"korpa"}
 
 
@@ -81,13 +83,13 @@ def hexi(name):
 UI = {
     "sr": {
         "nav": [("index", "Početna"), ("prodavnica", "Prodavnica"), ("apitox-sakupljac", "Apitox sakupljač"),
-                ("apikomora", "Apikomora"), ("galerija", "Galerija"), ("kontakt", "Kontakt")],
+                ("apikomora", "Apikomora"), ("galerija", "Galerija"), ("mediji", "U medijima"), ("kontakt", "Kontakt")],
         "cart": "Korpa", "brand_small": "Pčelarstvo", "motto": "Zdravlje iz košnice…",
         "menu": "Meni", "site": "Pčelarstvo Stanojević",
     },
     "en": {
         "nav": [("index", "Home"), ("prodavnica", "Shop"), ("apitox-sakupljac", "Apitox collector"),
-                ("apikomora", "Api-chamber"), ("galerija", "Gallery"), ("kontakt", "Contact")],
+                ("apikomora", "Api-chamber"), ("galerija", "Gallery"), ("mediji", "In the media"), ("kontakt", "Contact")],
         "cart": "Cart", "brand_small": "Beekeeping", "motto": "Health from the hive…",
         "menu": "Menu", "site": "Stanojević Beekeeping",
     },
@@ -181,6 +183,80 @@ def fig(lang, img, cap=""):
     return f'<figure><img src="{b}img/{img}" alt="{cap}" loading="lazy">{fc}</figure>'
 
 
+
+# ================================================================ MEDIA
+VIDEOS = {
+    "moje-selo": ("hmjWNpNuivM", "Moje selo", "", "Zdravlje iz košnice – apikomora u Palanci", "Health from the hive – the api-chamber in Palanka"),
+    "kcn": ("0n0DQK1IZAc", "TV KCN Jagodina", "25.02.2019.", "Predavanje za pčelare u Jagodini", "Lecture for beekeepers in Jagodina"),
+    "vk": ("iKb8Bz2M3JE", "RTV VK", "", "Gradska hronika – Saša Čolak i Goran Stanojević", "City chronicle – Saša Čolak and Goran Stanojević"),
+    "jas1": ("xtU1NfPPXLI", "TV Jasenica", "", "Jutarnji program – gost Goran Stanojević, predsednik Pčelarskog društva „Jasenica“", "Morning show – guest Goran Stanojević, president of the “Jasenica” Beekeepers' Society"),
+    "jas2": ("cQYDcILf8Pk", "TV Jasenica", "", "Goran Stanojević, predsednik Pčelarskog društva „Jasenica“", "Goran Stanojević, president of the “Jasenica” Beekeepers' Society"),
+    "jas3": ("BkLjMW0lCCQ", "TV Jasenica", "", "Gost Jutarnjeg programa: Goran Stanojević, predsednik PD „Jasenica“", "Morning show guest: Goran Stanojević, president of the “Jasenica” Beekeepers' Society"),
+    "jas4": ("-ybTq7HQoCo", "TV Jasenica", "", "Gost Jutarnjeg programa: Goran Stanojević, predsednik PD „Jasenica“", "Morning show guest: Goran Stanojević, president of the “Jasenica” Beekeepers' Society"),
+}
+ARTICLES = {
+    "bbc": ("https://www.danas.rs/bbc-news-serbian/apiterapija-u-srbiji-koliko-je-pcelinji-otrov-delotvoran-po-zdravlje/",
+            "BBC News na srpskom / Danas", "02.03.2024.",
+            "Apiterapija u Srbiji: Koliko je pčelinji otrov delotvoran po zdravlje",
+            "Apitherapy in Serbia: how effective is bee venom for health",
+            "Goran Stanojević je nastavnik u srednjoj elektrotehničkoj školi u Smederevskoj Palanci… Nikada nije želeo da se zadrži samo na proizvodnji meda.",
+            "A teacher at the secondary electrical engineering school in Smederevska Palanka who never wanted to stop at producing honey."),
+    "rts": ("https://www.rts.rs/lat/vesti/drustvo/3178049/kilogram-pcelinjeg-otrova--zarada-veca-od-100000-evra-.html",
+            "RTS", "29.06.2018.",
+            "Kilogram pčelinjeg otrova – zarada veća od 100.000 evra",
+            "A kilogram of bee venom – earnings over 100,000 euros",
+            "Došao je na ideju kako da posebno konstruisanim, kolektorskim pločama sakuplja otrov, odmah ispred same košnice.",
+            "He came up with the idea of collecting venom with specially designed collector plates, right in front of the hive."),
+    "agro": ("https://www.agroklub.rs/pcelarstvo/smederevska-palanka-otvorena-prva-prirodna-apikomora/41913/",
+             "Agroklub", "",
+             "Smederevska Palanka: otvorena prva prirodna apikomora",
+             "Smederevska Palanka: the first natural api-chamber opens",
+             "", ""),
+}
+
+
+def video(lang, key):
+    vid, src, date, t_sr, t_en = VIDEOS[key]
+    t = t_sr if lang == "sr" else t_en
+    meta = src + (" · " + date if date else "")
+    alt = t.replace('"', "")
+    return (f'<figure class="vid"><a href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" target="_blank" rel="noopener">'
+            f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{alt}" loading="lazy"><span class="play"></span></a>'
+            f'<figcaption><small>{meta}</small>{t}</figcaption></figure>')
+
+
+def article(lang, key):
+    href, src, date, t_sr, t_en, q_sr, q_en = ARTICLES[key]
+    t, q = (t_sr, q_sr) if lang == "sr" else (t_en, q_en)
+    more = "Pročitajte članak →" if lang == "sr" else "Read the article (in Serbian) →"
+    qh = (f"<p>„{q}“</p>" if lang == "sr" else f"<p>{q}</p>") if q else ""
+    return (f'<a class="art" href="{href}" target="_blank" rel="noopener"><small>{src}{" · " + date if date else ""}</small>'
+            f'<h3>{t}</h3>{qh}<span>{more}</span></a>')
+
+
+def mediji(lang):
+    if lang == "sr":
+        bn = banner(lang, "039.jpg", "U medijima", "Pisali su o nama", "Televizijska gostovanja, reportaže i članci o našem pčelarstvu.")
+        h = ("Članci", "Reportaže i predavanja", "Gostovanja na TV Jasenica")
+        desc = "Pčelarstvo Stanojević u medijima – RTS, BBC News na srpskom, Agroklub, Moje selo, TV Jasenica: pčelinji otrov, apikomora i Apitox sakupljač."
+        title = "U medijima"
+    else:
+        bn = banner(lang, "039.jpg", "In the media", "In the media", "TV appearances, reports and articles about our apiary.")
+        h = ("Articles", "Reports and lectures", "Appearances on TV Jasenica")
+        desc = "Stanojević Beekeeping in the media – RTS, BBC News Serbian, Agroklub, Moje selo, TV Jasenica: bee venom, api-chamber and the Apitox collector."
+        title = "In the media"
+    arts = "".join(article(lang, k) for k in ("bbc", "rts", "agro"))
+    v1 = "".join(video(lang, k) for k in ("moje-selo", "kcn", "vk"))
+    v2 = "".join(video(lang, k) for k in ("jas1", "jas2", "jas3", "jas4"))
+    body = f"""{bn}
+<section class="content paper"><div class="wrap">
+ <h2 class="galtitle">{h[0]}</h2><div class="arts">{arts}</div>
+ <h2 class="galtitle">{h[1]}</h2><div class="vids">{v1}</div>
+ <h2 class="galtitle">{h[2]}</h2><div class="vids">{v2}</div>
+</div></section>"""
+    return page(lang, "mediji", title, desc, body)
+
+
 # ================================================================ HOME
 def home(lang):
     b = "" if lang == "sr" else "../"
@@ -190,7 +266,8 @@ def home(lang):
                  f=["Prirodni med<br>i pčelinji proizvodi", "Apikomora –<br>zdravlje iz košnice",
                     "Sakupljanje<br>pčelinjeg otrova", "Nagrada za<br>najbolju inovaciju"],
                  about_s="O nama", about_h="Pčelarstvo sa tradicijom",
-                 about="Pčelarstvo Stanojević je porodično pčelarstvo iz Smederevske Palanke, koje vodi Goran Stanojević. Pored meda i ostalih "
+                 about="Pčelarstvo Stanojević je porodično pčelarstvo iz Smederevske Palanke, koje vodi Goran Stanojević – "
+                       "predsednik Pčelarskog društva „Jasenica“ i nastavnik elektrotehnike. Pored meda i ostalih "
                        "pčelinjih proizvoda, bavimo se sakupljanjem pčelinjeg otrova, izradom sopstvenih Apitox "
                        "sakupljača nagrađenih na državnom sajmu pčelarstva, kozmetikom na bazi pčelinjeg otrova i "
                        "propolisa, kao i apikomorom – boravkom u vazduhu iz košnice.",
@@ -209,7 +286,8 @@ def home(lang):
                        ("frame", "Apitox sakupljač", "Nagrađeni uređaj za sakupljanje pčelinjeg otrova", "apitox-sakupljac"),
                        ("people", "Posete i predavanja", "Škole, studenti i pčelari iz zemlje i inostranstva", "galerija")],
                  gal_h="Galerija", gal_p="Naši pčelinjaci, apikomora i druženja", gal_b="Otvorite galeriju",
-                 award="Prvo mesto na državnom sajmu pčelarstva za najbolju inovaciju")
+                 award="Prvo mesto na državnom sajmu pčelarstva za najbolju inovaciju",
+                 press_s="Pisali su o nama", press_b="Pogledajte priloge")
         desc = "Porodično pčelarstvo iz Smederevske Palanke – domaći med, polen, propolis, matični mleč, kreme sa pčelinjim otrovom, apikomora i nagrađeni Apitox sakupljač."
     else:
         t = dict(kick="Tradition, nature and quality", h1="Stanojević<br>Beekeeping",
@@ -217,7 +295,8 @@ def home(lang):
                  f=["Natural honey<br>and bee products", "Api-chamber –<br>health from the hive",
                     "Bee venom<br>collection", "Award for<br>best innovation"],
                  about_s="About us", about_h="Beekeeping with tradition",
-                 about="Stanojević Beekeeping is a family apiary from Smederevska Palanka, run by Goran Stanojević. Besides honey and other bee "
+                 about="Stanojević Beekeeping is a family apiary from Smederevska Palanka, run by Goran Stanojević – "
+                       "president of the “Jasenica” Beekeepers' Society and an electrical engineering teacher. Besides honey and other bee "
                        "products, we collect bee venom, build our own Apitox venom collectors – awarded at the national "
                        "beekeeping fair – make cosmetics based on bee venom and propolis, and run an api-chamber where "
                        "visitors breathe the air from the hive.",
@@ -236,7 +315,8 @@ def home(lang):
                        ("frame", "Apitox collector", "Award-winning device for collecting bee venom", "apitox-sakupljac"),
                        ("people", "Visits and lectures", "Schools, students and beekeepers from home and abroad", "galerija")],
                  gal_h="Gallery", gal_p="Our apiaries, the api-chamber and meetings", gal_b="Open the gallery",
-                 award="First place at the national beekeeping fair for best innovation")
+                 award="First place at the national beekeeping fair for best innovation",
+                 press_s="Featured in", press_b="See the reports")
         desc = "Family apiary from Smederevska Palanka, Serbia – honey, pollen, propolis, royal jelly, bee venom creams, api-chamber and the award-winning Apitox collector."
 
     feats = "".join(f'<div class="f">{hexi(i)}<span>{x}</span></div>'
@@ -288,6 +368,12 @@ def home(lang):
   <div class="photos"><img src="{b}img/053.jpg" alt=""><img src="{b}img/042.jpg" alt=""><img src="{b}img/056.jpg" alt=""></div>
  </div>
  <a class="award" href="apitox-sakupljac.html"><img src="{b}img/011.jpg" alt=""><div><div class="kick left" style="margin-bottom:8px">Apitox</div><b>{t['award']}</b></div></a>
+</div></section>
+
+<section class="press paper"><div class="wrap">
+ <div class="sub">{t['press_s']}</div>
+ <div class="logos"><span>RTS</span><span>BBC News na srpskom</span><span>Agroklub</span><span>Moje selo</span><span>TV Jasenica</span><span>TV KCN</span></div>
+ <a class="btn arrow dark" href="mediji.html">{t['press_b']}</a>
 </div></section>
 """
     return page(lang, "index", "", desc, body, ld=business_ld(lang), image="055.jpg")
@@ -508,6 +594,9 @@ def apitox(lang):
   <div class="awardbox"><img src="{b}img/011.jpg" alt=""><div><div class="kick left">{award[0]}</div><h2>{award[1]}</h2><p>{award[2]}</p></div></div>
   <div class="stats">{st}</div>
   {S}
+  <h2>{"O pčelinjem otrovu u medijima" if lang == "sr" else "Bee venom in the media"}</h2>
+  <div class="arts">{article(lang, "bbc")}{article(lang, "rts")}</div>
+  {video(lang, "kcn")}
   <h2 id="slike">{slike_h}</h2>
  </div>
  {gal(lang, [(p, "") for p in pics])}
@@ -546,6 +635,9 @@ def apikomora(lang):
 <li>U apikomoru se ne ulazi sa mobilnim telefonom, namirisan parfemom ili dezodoransom, niti u alkoholisanom stanju, jer to ometa normalan rad pčelinje zajednice.</li>
 </ul>
 <p class="note">Boravak u apikomori nije zamena za lečenje i terapiju koju je propisao lekar.</p>
+<h2>Apikomora u medijima</h2>
+{video(lang, "moje-selo")}
+<div class="arts">{article(lang, "agro")}</div>
 <h2>Posete apikomori</h2>"""
         caps = [("045.jpg", "Poseta đaka i profesora OŠ „Olga Milošević“"), ("046.jpg", "Poseta studenata i profesora iz Holandije"),
                 ("047.jpg", "Poseta kolega pčelara iz Slovenije"), ("048.jpg", "Poseta kolega pčelara iz Slovenije")]
@@ -578,6 +670,9 @@ def apikomora(lang):
 <li>Do not enter the api-chamber with a mobile phone, wearing perfume or deodorant, or after drinking alcohol, as this disturbs the bee colony.</li>
 </ul>
 <p class="note">Time in the api-chamber is not a substitute for medical treatment prescribed by a doctor.</p>
+<h2>The api-chamber in the media</h2>
+{video(lang, "moje-selo")}
+<div class="arts">{article(lang, "agro")}</div>
 <h2>Visits to the api-chamber</h2>"""
         caps = [("045.jpg", "Visit by pupils and teachers of “Olga Milošević” Primary School"), ("046.jpg", "Visit by students and professors from the Netherlands"),
                 ("047.jpg", "Visit by fellow beekeepers from Slovenia"), ("048.jpg", "Visit by fellow beekeepers from Slovenia")]
@@ -704,7 +799,7 @@ def korpa(lang):
 # ================================================================ BUILD
 def main():
     pages = {"index": home, "prodavnica": shop, "apitox-sakupljac": apitox, "apikomora": apikomora,
-             "galerija": galerija, "kontakt": kontakt, "korpa": korpa}
+             "galerija": galerija, "mediji": mediji, "kontakt": kontakt, "korpa": korpa}
     for lang in ("sr", "en"):
         out = ROOT if lang == "sr" else os.path.join(ROOT, "en")
         os.makedirs(out, exist_ok=True)
@@ -713,7 +808,7 @@ def main():
         for slug in CREAMS:
             open(os.path.join(out, slug + ".html"), "w", encoding="utf-8").write(cream(lang, slug))
     slugs = ["index", "prodavnica", "apifigura", "apisalus", "propolis-krema",
-             "apitox-sakupljac", "apikomora", "galerija", "kontakt"]
+             "apitox-sakupljac", "apikomora", "galerija", "mediji", "kontakt"]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for lang in ("sr", "en"):

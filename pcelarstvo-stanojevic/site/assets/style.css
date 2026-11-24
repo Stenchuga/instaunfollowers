@@ -50,7 +50,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 .logo img{height:58px;border-radius:10px}
 .logo b{font:700 26px/1 "Lora",serif;color:var(--gold2)}
 .logo small{display:block;font:600 15px "Lora",serif;color:var(--gold)}
-nav.main{display:flex;gap:24px;font-weight:700;font-size:15px;color:var(--cream)}
+nav.main{display:flex;gap:20px;font-weight:700;font-size:15px;color:var(--cream)}
 nav.main a{padding:4px 0}
 nav.main a:hover{color:var(--gold2)}
 nav.main a.on{color:var(--gold);box-shadow:0 3px 0 var(--gold)}
@@ -228,6 +228,29 @@ textarea{min-height:90px;resize:vertical}
 .cc .hexi{margin:0 auto 14px}
 .cc b{display:block;font:700 22px "Lora",serif;color:var(--gold2);margin-top:4px;word-break:break-word}
 
+/* media */
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin:18px 0 50px}
+.vid{margin:0}
+.prose .vid{margin:24px 0}
+.vid a,.vid iframe{display:block;position:relative;aspect-ratio:16/9;width:100%;border-radius:14px;overflow:hidden;background:#1e1207;border:0}
+.vid img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .2s}
+.vid a:hover img{opacity:1}
+.play{position:absolute;inset:0;margin:auto;width:74px;height:84px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.play:after{content:"";position:absolute;left:30px;top:27px;border-left:22px solid var(--wood2);border-top:15px solid transparent;border-bottom:15px solid transparent}
+.vid figcaption{font:600 16px/1.35 "Lora",serif;margin-top:10px;text-align:left;color:var(--ink)}
+.vid figcaption small{display:block;font:800 12px "Nunito Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#a86f17;margin-bottom:2px}
+.arts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin:18px 0 50px}
+.prose .arts{margin:18px 0 10px}
+.art{display:flex;flex-direction:column;background:var(--wood);color:var(--cream);border-radius:18px;padding:24px;transition:transform .2s}
+.art:hover{transform:translateY(-4px)}
+.art small{font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.art h3{font-size:21px;color:var(--gold2);margin:8px 0}
+.art p{font:italic 15px/1.5 "Lora",serif;opacity:.85;margin:0 0 14px!important;flex:1}
+.art span{font-weight:800;font-size:14px;margin-top:auto}
+.press{text-align:center;padding:50px 0;border-top:1px solid var(--line)}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;margin:14px 0 26px}
+.logos span{font:700 22px "Lora",serif;color:var(--muted);opacity:.85}
+
 /* footer */
 footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-items:center;padding-block:40px}
 .ct div{display:flex;gap:12px;margin:6px 0;align-items:center}
@@ -240,11 +263,11 @@ footer .wrap{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:40px;align-ite
 .toast.show{transform:translate(-50%,0)}
 
 /* responsive */
-@media (max-width:1100px){
-  nav.main{gap:16px;font-size:14px}
+@media (max-width:1180px){
+  nav.main{gap:14px;font-size:14px}
   .hero h1{font-size:64px}
 }
-@media (max-width:980px){
+@media (max-width:1080px){
   .burger{display:block}
   nav.main{position:fixed;inset:0;background:#1c1006f8;flex-direction:column;justify-content:center;align-items:center;gap:22px;font-size:22px;font-family:"Lora",serif;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility .25s;z-index:30}
   nav.main.open{transform:none;visibility:visible}

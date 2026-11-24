@@ -163,6 +163,16 @@
     list = [].slice.call(a.closest(".gal").querySelectorAll("a")); show(list.indexOf(a)); lb.classList.add("open");
   });
 
+  /* ---- youtube: load the player only on click ---- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[data-yt]"); if (!a) return; e.preventDefault();
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + a.getAttribute("data-yt") + "?autoplay=1&rel=0";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true;
+    f.title = a.querySelector("img").alt;
+    a.replaceWith(f);
+  });
+
   /* ---- mobile menu ---- */
   var nav = document.querySelector("nav.main");
   document.addEventListener("click", function (e) {
