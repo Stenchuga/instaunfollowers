@@ -14,7 +14,7 @@
   PRIMER: price: 1500  →  prikazuje se "1.500 din"
 */
 window.PRODUCTS = [
-  { id: "apifigura", cat: "kozmetika", price: null, unit: "", img: "img/004.png", page: "apifigura",
+  { id: "apifigura", cat: "kozmetika", price: null, unit: "", img: "img/proizvodi/apifigura.webp", page: "apifigura",
     sr: { name: "ApiFigura", desc: "Antirid krema sa pčelinjim otrovom i matičnim mlečom" },
     en: { name: "ApiFigura", desc: "Anti-wrinkle cream with bee venom and royal jelly" } },
   { id: "apisalus", cat: "kozmetika", price: null, unit: "", img: "img/005.png", page: "apisalus",

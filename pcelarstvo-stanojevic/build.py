@@ -278,7 +278,7 @@ def home(lang):
                  more="Apitox sakupljač",
                  prod_h="Naši proizvodi", prod_s="Prirodni proizvodi sa našeg pčelinjaka",
                  hx=["Med", "Polen", "Propolis", "Matični mleč", "Pčelinji otrov"],
-                 cos=[("apifigura", "004.png", "ApiFigura", "Krema sa pčelinjim otrovom"),
+                 cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Krema sa pčelinjim otrovom"),
                       ("apisalus", "005.png", "ApiSalus", "Pčelinje zdravlje"),
                       ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
                  shop="Pogledajte prodavnicu",
@@ -307,7 +307,7 @@ def home(lang):
                  more="Apitox collector",
                  prod_h="Our products", prod_s="Natural products from our apiary",
                  hx=["Honey", "Pollen", "Propolis", "Royal jelly", "Bee venom"],
-                 cos=[("apifigura", "004.png", "ApiFigura", "Cream with bee venom"),
+                 cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Cream with bee venom"),
                       ("apisalus", "005.png", "ApiSalus", "Bee health"),
                       ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
                  shop="Visit the shop",
@@ -404,7 +404,7 @@ def shop(lang):
 
 # ================================================================ PRODUCT PAGES
 CREAMS = {
-    "apifigura": dict(img="004.png", sr=dict(
+    "apifigura": dict(img="proizvodi/apifigura.webp", sr=dict(
         name="ApiFigura", tag="Pčelinja lepota",
         lead="ApiFigura – antirid – jedinstvena krema sa pčelinjim otrovom na našem tržištu, koja u svom sastavu sadrži i "
              "liofilizirani matični mleč. Sem što će zategnuti vaše bore, lice će vam biti meko i negovano. Topla preporuka "
