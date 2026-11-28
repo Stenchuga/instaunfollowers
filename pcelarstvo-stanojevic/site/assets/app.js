@@ -49,7 +49,7 @@
     var t = p[lang];
     var link = p.page ? p.page + ".html" : null;
     return '<article class="card" data-cat="' + p.cat + '">' +
-      '<div class="im' + (p.light ? " light" : "") + '"><img src="' + base + p.img + '" alt="' + esc(t.name) + '" class="' + (p.cover ? "cover" : "") + '" loading="lazy"></div>' +
+      '<div class="im' + (p.light ? " light" : "") + '"><img src="' + base + p.img + '" alt="' + esc(t.name) + '"' + (p.pos ? ' style="object-position:' + p.pos + '"' : "") + ' class="' + (p.cover ? "cover" : "") + '" loading="lazy"></div>' +
       '<h3>' + esc(t.name) + '</h3><p>' + esc(t.desc) + (p.unit ? " · " + esc(p.unit) : "") + '</p>' +
       (link ? '<a class="more" href="' + link + '">' + T.more + ' →</a>' : "") +
       '<div class="f2"><span class="price' + (p.price == null && p.priceEur == null ? " req" : "") + '">' + fmt(p) + '</span><button class="add" data-add="' + p.id + '">' + T.add + '</button></div></article>';
