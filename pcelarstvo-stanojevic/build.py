@@ -279,7 +279,7 @@ def home(lang):
                  prod_h="Naši proizvodi", prod_s="Prirodni proizvodi sa našeg pčelinjaka",
                  hx=["Med", "Polen", "Propolis", "Matični mleč", "Pčelinji otrov"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Krema sa pčelinjim otrovom"),
-                      ("apisalus", "005.png", "ApiSalus", "Pčelinje zdravlje"),
+                      ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Pčelinje zdravlje"),
                       ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
                  shop="Pogledajte prodavnicu",
                  serv_s="Šta još radimo", serv_h="Naše usluge",
@@ -308,7 +308,7 @@ def home(lang):
                  prod_h="Our products", prod_s="Natural products from our apiary",
                  hx=["Honey", "Pollen", "Propolis", "Royal jelly", "Bee venom"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Cream with bee venom"),
-                      ("apisalus", "005.png", "ApiSalus", "Bee health"),
+                      ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Bee health"),
                       ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
                  shop="Visit the shop",
                  serv_s="What else we do", serv_h="Our services",
@@ -322,10 +322,11 @@ def home(lang):
 
     feats = "".join(f'<div class="f">{hexi(i)}<span>{x}</span></div>'
                     for i, x in zip(["comb", "house", "bee", "award"], t["f"]))
-    hx_pos = ["72% 30%", "12% 40%", "45% 70%", "90% 60%"]
+    hx_img = [("proizvodi/med-suncokret.webp", "50% 55%", "cover"), ("049.jpg", "12% 40%", "420%"),
+              ("proizvodi/propolis-kapi.webp", "50% 55%", "cover"), ("049.jpg", "90% 60%", "420%")]
     hexes = "".join(
-        f'<a class="hx" href="prodavnica.html"><div class="h"><div style="background-image:url({b}img/049.jpg);'
-        f'background-position:{p};background-size:420%"></div></div>{n}</a>' for p, n in zip(hx_pos, t["hx"][:4]))
+        f'<a class="hx" href="prodavnica.html"><div class="h"><div style="background-image:url({b}img/{im});'
+        f'background-position:{p};background-size:{sz}"></div></div>{n}</a>' for (im, p, sz), n in zip(hx_img, t["hx"][:4]))
     hexes += (f'<a class="hx" href="apitox-sakupljac.html"><div class="h"><div style="background-image:url({b}img/033.jpg)">'
               f'</div></div>{t["hx"][4]}</a>')
     cos = "".join(f'<a class="c" href="{s}.html"><img src="{b}img/{i}" alt="{n}"><span><b>{n}</b><small>{d}</small></span></a>'
@@ -423,7 +424,7 @@ CREAMS = {
         upotreba="Apply and rub into the target area (1–2 times a day).",
         napomena="People allergic to bee venom must not use the cream without consulting a doctor. After opening, the "
                  "cream remains stable for 6 months. Store at temperatures up to 35 °C.")),
-    "apisalus": dict(img="005.png", sr=dict(
+    "apisalus": dict(img="proizvodi/apisalus.webp", sr=dict(
         name="ApiSalus", tag="Pčelinje zdravlje",
         lead="ApiSalus – pčelinje zdravlje – zahvaljujući kapsaicinu, kao jednom od sastojaka kreme, apitoksin (pčelinji "
              "otrov) brzo prodire kroz kožu i dovodi do poboljšanja cirkulacije i protoka krvi u perifernim delovima tela. "
@@ -474,7 +475,7 @@ def cream(lang, slug):
                  "Add to cart", "← Back to shop"))[lang]
     body = f"""{banner(lang, "002.jpg", "ApitoxCosmetics", t['name'], t['tag'])}
 <section class="content paper"><div class="wrap"><div class="pd">
- <div class="ph"><img src="{b}img/{d['img']}" alt="{t['name']}"></div>
+ <div class="ph{' light' if d.get('light') else ''}"><img src="{b}img/{d['img']}" alt="{t['name']}"></div>
  <div>
   <a class="small" href="prodavnica.html" style="font-weight:700">{L[5]}</a>
   <h2 style="margin-top:10px">{t['name']}</h2>
