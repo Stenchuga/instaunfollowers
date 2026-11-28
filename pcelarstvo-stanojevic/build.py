@@ -277,7 +277,7 @@ def home(lang):
                          "propolis. Pčele su nam podarile idealnu hranu koja zadovoljava sve potrebe ljudskog organizma.",
                  more="Apitox sakupljač",
                  prod_h="Naši proizvodi", prod_s="Prirodni proizvodi sa našeg pčelinjaka",
-                 hx=["Suncokretov med", "Bagremov med", "Propolis kapi", "Propolis sprej", "Pčelinji otrov"],
+                 hx=["Suncokretov med", "Bagremov med", "Propolis kapi", "Propolis sprej"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Krema sa pčelinjim otrovom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Pčelinje zdravlje"),
                       ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
@@ -306,7 +306,7 @@ def home(lang):
                          "healthy food. Bees have given us an ideal food that meets all the needs of the human body.",
                  more="Apitox collector",
                  prod_h="Our products", prod_s="Natural products from our apiary",
-                 hx=["Sunflower honey", "Acacia honey", "Propolis drops", "Propolis spray", "Bee venom"],
+                 hx=["Sunflower honey", "Acacia honey", "Propolis drops", "Propolis spray"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Cream with bee venom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Bee health"),
                       ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
@@ -327,8 +327,6 @@ def home(lang):
     hexes = "".join(
         f'<a class="hx" href="prodavnica.html"><div class="h"><div style="background-image:url({b}img/{im});'
         f'background-position:{p};background-size:{sz}"></div></div>{n}</a>' for (im, p, sz), n in zip(hx_img, t["hx"][:4]))
-    hexes += (f'<a class="hx" href="apitox-sakupljac.html"><div class="h"><div style="background-image:url({b}img/033.jpg)">'
-              f'</div></div>{t["hx"][4]}</a>')
     cos = "".join(f'<a class="c" href="{s}.html"><img src="{b}img/{i}" alt="{n}"><span><b>{n}</b><small>{d}</small></span></a>'
                   for s, i, n, d in t["cos"])
     serv = "".join(f'<a class="sv" href="{l}.html">{hexi(i)}<h3>{h}</h3><p>{p}</p></a>' for i, h, p, l in t["serv"])
