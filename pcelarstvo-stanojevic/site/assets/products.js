@@ -26,10 +26,10 @@ window.PRODUCTS = [
     sr: { name: "ProPolis krema", desc: "Mast na bazi propolisa i prirodnih ulja" },
     en: { name: "ProPolis cream", desc: "Ointment made with propolis and natural oils" } },
 
-  { id: "med-suncokret", cat: "med", price: 1000, unit: "", img: "img/proizvodi/med-suncokret.webp", cover: true,
+  { id: "med-suncokret", cat: "med", price: 1000, unit: "1 kg", img: "img/proizvodi/med-suncokret.webp", cover: true,
     sr: { name: "Suncokretov med", desc: "Taman, aromatičan med sa suncokreta" },
     en: { name: "Sunflower honey", desc: "Rich, aromatic sunflower honey" } },
-  { id: "med-bagrem", cat: "med", price: 1500, unit: "", img: "img/proizvodi/med-bagrem.webp", cover: true,
+  { id: "med-bagrem", cat: "med", price: 1500, unit: "1 kg", img: "img/proizvodi/med-bagrem.webp", cover: true,
     sr: { name: "Bagremov med", desc: "Svetao, blag bagremov med" },
     en: { name: "Acacia honey", desc: "Light, mild acacia honey" } },
   { id: "propolis-kapi", cat: "pcelinji", price: 200, unit: "10 ml", img: "img/proizvodi/propolis-kapi.webp", cover: true,
