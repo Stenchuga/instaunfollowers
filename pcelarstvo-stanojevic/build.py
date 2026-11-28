@@ -277,7 +277,7 @@ def home(lang):
                          "propolis. Pčele su nam podarile idealnu hranu koja zadovoljava sve potrebe ljudskog organizma.",
                  more="Apitox sakupljač",
                  prod_h="Naši proizvodi", prod_s="Prirodni proizvodi sa našeg pčelinjaka",
-                 hx=["Med", "Polen", "Propolis", "Matični mleč", "Pčelinji otrov"],
+                 hx=["Suncokretov med", "Bagremov med", "Propolis kapi", "Propolis sprej", "Pčelinji otrov"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Krema sa pčelinjim otrovom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Pčelinje zdravlje"),
                       ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
@@ -289,7 +289,7 @@ def home(lang):
                  gal_h="Galerija", gal_p="Naši pčelinjaci, apikomora i druženja", gal_b="Otvorite galeriju",
                  award="Prvo mesto na državnom sajmu pčelarstva za najbolju inovaciju",
                  press_s="Pisali su o nama", press_b="Pogledajte priloge")
-        desc = "Porodično pčelarstvo iz Smederevske Palanke – domaći med, polen, propolis, matični mleč, kreme sa pčelinjim otrovom, apikomora i nagrađeni Apitox sakupljač."
+        desc = "Porodično pčelarstvo iz Smederevske Palanke – suncokretov i bagremov med, propolis kapi i sprej, kreme sa pčelinjim otrovom, apikomora i nagrađeni Apitox sakupljač."
     else:
         t = dict(kick="Tradition, nature and quality", h1="Stanojević<br>Beekeeping",
                  s="Health from the hive,<br>straight from our apiary.", cta="See our products",
@@ -306,7 +306,7 @@ def home(lang):
                          "healthy food. Bees have given us an ideal food that meets all the needs of the human body.",
                  more="Apitox collector",
                  prod_h="Our products", prod_s="Natural products from our apiary",
-                 hx=["Honey", "Pollen", "Propolis", "Royal jelly", "Bee venom"],
+                 hx=["Sunflower honey", "Acacia honey", "Propolis drops", "Propolis spray", "Bee venom"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Cream with bee venom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Bee health"),
                       ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
@@ -318,12 +318,12 @@ def home(lang):
                  gal_h="Gallery", gal_p="Our apiaries, the api-chamber and meetings", gal_b="Open the gallery",
                  award="First place at the national beekeeping fair for best innovation",
                  press_s="Featured in", press_b="See the reports")
-        desc = "Family apiary from Smederevska Palanka, Serbia – honey, pollen, propolis, royal jelly, bee venom creams, api-chamber and the award-winning Apitox collector."
+        desc = "Family apiary from Smederevska Palanka, Serbia – sunflower and acacia honey, propolis drops and spray, bee venom creams, api-chamber and the award-winning Apitox collector."
 
     feats = "".join(f'<div class="f">{hexi(i)}<span>{x}</span></div>'
                     for i, x in zip(["comb", "house", "bee", "award"], t["f"]))
-    hx_img = [("proizvodi/med-suncokret.webp", "50% 55%", "cover"), ("049.jpg", "12% 40%", "420%"),
-              ("proizvodi/propolis-kapi.webp", "50% 55%", "cover"), ("049.jpg", "90% 60%", "420%")]
+    hx_img = [("proizvodi/med-suncokret.webp", "50% 55%", "cover"), ("proizvodi/med-bagrem.webp", "50% 55%", "cover"),
+              ("proizvodi/propolis-kapi.webp", "50% 50%", "cover"), ("proizvodi/propolis-sprej.webp", "50% 45%", "cover")]
     hexes = "".join(
         f'<a class="hx" href="prodavnica.html"><div class="h"><div style="background-image:url({b}img/{im});'
         f'background-position:{p};background-size:{sz}"></div></div>{n}</a>' for (im, p, sz), n in zip(hx_img, t["hx"][:4]))
@@ -386,12 +386,12 @@ def shop(lang):
     if lang == "sr":
         bn = banner(lang, "049.jpg", "Prodavnica", "Naši proizvodi", "Izaberite proizvode, a mi vas pozivamo da potvrdimo porudžbinu.")
         info = [("cart", "Dodajte proizvode u korpu"), ("phone", "Pozivamo vas radi potvrde"), ("truck", "Plaćanje pouzećem")]
-        desc = "Prodavnica Pčelarstva Stanojević – kreme sa pčelinjim otrovom, med, polen, propolis i Apitox sakupljač."
+        desc = "Prodavnica Pčelarstva Stanojević – kreme sa pčelinjim otrovom, suncokretov i bagremov med, propolis kapi i sprej i Apitox sakupljač."
         title = "Prodavnica"
     else:
         bn = banner(lang, "049.jpg", "Shop", "Our products", "Choose your products and we will call you to confirm the order.")
         info = [("cart", "Add products to the cart"), ("phone", "We call you to confirm"), ("truck", "Cash on delivery")]
-        desc = "Stanojević Beekeeping shop – bee venom creams, honey, pollen, propolis and the Apitox collector."
+        desc = "Stanojević Beekeeping shop – bee venom creams, sunflower and acacia honey, propolis drops and spray and the Apitox collector."
         title = "Shop"
     infob = "".join(f"<div>{hexi(i)}{x}</div>" for i, x in info)
     body = f"""{bn}
