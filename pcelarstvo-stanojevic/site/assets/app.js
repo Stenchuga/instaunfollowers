@@ -18,7 +18,13 @@
   }[lang];
 
   function byId(id) { for (var i = 0; i < P.length; i++) if (P[i].id === id) return P[i]; }
-  function fmt(n) { return n == null ? T.onRequest : n.toLocaleString("sr-RS") + " " + T.currency; }
+  function fmt(p) { return p.price != null ? p.price.toLocaleString("sr-RS") + " " + T.currency : (p.priceEur != null ? p.priceEur.toLocaleString("sr-RS") + " €" : T.onRequest); }
+  function totalText(s, cur) {
+    var parts = [];
+    if (s.sum > 0) parts.push(s.sum.toLocaleString("sr-RS") + " " + cur);
+    if (s.eur > 0) parts.push(s.eur.toLocaleString("sr-RS") + " €");
+    return parts.length ? parts.join(" + ") : null;
+  }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
   /* ---- cart storage ---- */
@@ -46,7 +52,7 @@
       '<div class="im' + (p.light ? " light" : "") + '"><img src="' + base + p.img + '" alt="' + esc(t.name) + '" class="' + (p.cover ? "cover" : "") + '" loading="lazy"></div>' +
       '<h3>' + esc(t.name) + '</h3><p>' + esc(t.desc) + (p.unit ? " · " + esc(p.unit) : "") + '</p>' +
       (link ? '<a class="more" href="' + link + '">' + T.more + ' →</a>' : "") +
-      '<div class="f2"><span class="price' + (p.price == null ? " req" : "") + '">' + fmt(p.price) + '</span><button class="add" data-add="' + p.id + '">' + T.add + '</button></div></article>';
+      '<div class="f2"><span class="price' + (p.price == null && p.priceEur == null ? " req" : "") + '">' + fmt(p) + '</span><button class="add" data-add="' + p.id + '">' + T.add + '</button></div></article>';
   }
   function renderShop() {
     var grid = document.getElementById("shop-grid"); if (!grid) return;
@@ -65,7 +71,7 @@
   /* ---- product price on detail pages ---- */
   function renderDetail() {
     var el = document.querySelector("[data-price]"); if (!el) return;
-    var p = byId(el.getAttribute("data-price")); if (p) el.textContent = fmt(p.price) + (p.unit ? " · " + p.unit : "");
+    var p = byId(el.getAttribute("data-price")); if (p) el.textContent = fmt(p) + (p.unit ? " · " + p.unit : "");
   }
 
   document.addEventListener("click", function (e) {
@@ -87,12 +93,12 @@
     return out;
   }
   function summary(items) {
-    var sum = 0, req = false;
+    var sum = 0, eur = 0, req = false;
     var lines = items.map(function (it) {
-      if (it.p.price == null) req = true; else sum += it.p.price * it.q;
-      return it.q + " × " + it.p.sr.name + (it.p.unit ? " (" + it.p.unit + ")" : "") + " – " + (it.p.price == null ? "cena na upit" : (it.p.price * it.q).toLocaleString("sr-RS") + " din");
+      if (it.p.price != null) sum += it.p.price * it.q; else if (it.p.priceEur != null) eur += it.p.priceEur * it.q; else req = true;
+      return it.q + " × " + it.p.sr.name + (it.p.unit ? " (" + it.p.unit + ")" : "") + " – " + (it.p.price != null ? (it.p.price * it.q).toLocaleString("sr-RS") + " din" : it.p.priceEur != null ? (it.p.priceEur * it.q).toLocaleString("sr-RS") + " €" : "cena na upit");
     });
-    return { lines: lines, sum: sum, req: req };
+    return { lines: lines, sum: sum, eur: eur, req: req };
   }
   function renderCart() {
     var box = document.getElementById("cart-lines"); if (!box) return;
@@ -106,14 +112,14 @@
     form.querySelector("button[type=submit]").disabled = false;
     box.innerHTML = items.map(function (it) {
       var t = it.p[lang];
-      return '<div class="line"><img src="' + base + it.p.img + '" alt=""><div><b>' + esc(t.name) + '</b><br><small>' + fmt(it.p.price) + '</small></div>' +
+      return '<div class="line"><img src="' + base + it.p.img + '" alt=""><div><b>' + esc(t.name) + '</b><br><small>' + fmt(it.p) + '</small></div>' +
         '<div class="qty"><button type="button" data-q="' + it.p.id + '" data-d="-1">−</button><input value="' + it.q + '" readonly><button type="button" data-q="' + it.p.id + '" data-d="1">+</button></div>' +
         '<button class="rm" type="button" title="' + T.remove + '" data-rm="' + it.p.id + '">×</button></div>';
     }).join("");
     var s = summary(items);
     document.getElementById("cart-total").innerHTML = '<div class="tot"><span>' + T.total + '</span><span>' +
-      (s.sum === 0 && s.req ? T.onRequest : s.sum.toLocaleString("sr-RS") + " " + T.currency) + '</span></div>' +
-      (s.req && s.sum > 0 ? '<p class="small">' + T.plusReq + '</p>' : "");
+      (totalText(s, T.currency) || T.onRequest) + '</span></div>' +
+      (s.req && totalText(s, T.currency) ? '<p class="small">' + T.plusReq + '</p>' : "");
     var wa = document.getElementById("wa");
     if (wa) wa.href = "https://wa.me/" + (S.phone || "").replace(/\D/g, "") + "?text=" + encodeURIComponent(T.waText + "\n" + s.lines.join("\n"));
   }
@@ -130,7 +136,7 @@
     e.preventDefault();
     var items = cartItems(); if (!items.length) return;
     var s = summary(items);
-    form.elements["porudzbina"].value = s.lines.join("\n") + "\n\nUkupno: " + (s.sum === 0 && s.req ? "cena na upit" : s.sum.toLocaleString("sr-RS") + " din" + (s.req ? " + stavke sa cenom na upit" : ""));
+    form.elements["porudzbina"].value = s.lines.join("\n") + "\n\nUkupno: " + ((totalText(s, "din") || "cena na upit") + (s.req && totalText(s, "din") ? " + stavke sa cenom na upit" : ""));
     form.elements["jezik"].value = lang === "en" ? "engleski" : "srpski";
     var btn = form.querySelector("button[type=submit]"), old = btn.textContent;
     btn.disabled = true; btn.textContent = T.sending;
