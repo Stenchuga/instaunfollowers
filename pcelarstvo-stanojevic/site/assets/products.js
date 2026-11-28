@@ -22,7 +22,7 @@ window.PRODUCTS = [
   { id: "apisalus", cat: "kozmetika", price: 1200, img: "img/proizvodi/apisalus.webp", unit: "30 ml", page: "apisalus",
     sr: { name: "ApiSalus", desc: "Krema sa pčelinjim otrovom – pčelinje zdravlje" },
     en: { name: "ApiSalus", desc: "Cream with bee venom – bee health" } },
-  { id: "propolis-krema", cat: "kozmetika", price: 1200, unit: "", img: "img/006.png", page: "propolis-krema",
+  { id: "propolis-krema", cat: "kozmetika", price: 1200, unit: "30 ml", img: "img/proizvodi/propolis-krema.webp", page: "propolis-krema",
     sr: { name: "ProPolis krema", desc: "Mast na bazi propolisa i prirodnih ulja" },
     en: { name: "ProPolis cream", desc: "Ointment made with propolis and natural oils" } },
 

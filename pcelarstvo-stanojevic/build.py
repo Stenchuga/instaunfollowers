@@ -280,7 +280,7 @@ def home(lang):
                  hx=["Suncokretov med", "Bagremov med", "Propolis kapi", "Propolis sprej"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Krema sa pčelinjim otrovom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Pčelinje zdravlje"),
-                      ("propolis-krema", "006.png", "ProPolis", "Krema na bazi propolisa")],
+                      ("propolis-krema", "proizvodi/propolis-krema.webp", "ProPolis", "Krema na bazi propolisa")],
                  shop="Pogledajte prodavnicu",
                  serv_s="Šta još radimo", serv_h="Naše usluge",
                  serv=[("house", "Apikomora", "Prva prirodna apikomora u centralnoj Srbiji, na jezeru Kudreč", "apikomora"),
@@ -309,7 +309,7 @@ def home(lang):
                  hx=["Sunflower honey", "Acacia honey", "Propolis drops", "Propolis spray"],
                  cos=[("apifigura", "proizvodi/apifigura.webp", "ApiFigura", "Cream with bee venom"),
                       ("apisalus", "proizvodi/apisalus.webp", "ApiSalus", "Bee health"),
-                      ("propolis-krema", "006.png", "ProPolis", "Propolis-based cream")],
+                      ("propolis-krema", "proizvodi/propolis-krema.webp", "ProPolis", "Propolis-based cream")],
                  shop="Visit the shop",
                  serv_s="What else we do", serv_h="Our services",
                  serv=[("house", "Api-chamber", "The first natural api-chamber in central Serbia, at Lake Kudreč", "apikomora"),
@@ -443,7 +443,7 @@ CREAMS = {
                "oil, rosemary essential oil, chili pepper extract and vitamin E.",
         upotreba="Apply and rub into the target area. Repeat 2–3 times a day.",
         napomena="People allergic to bee venom must not use the cream without consulting a doctor.")),
-    "propolis-krema": dict(img="006.png", sr=dict(
+    "propolis-krema": dict(img="proizvodi/propolis-krema.webp", sr=dict(
         name="ProPolis krema", tag="Na bazi propolisa",
         lead="ProPolis krema – propolis mast izrađena je na bazi prirodnih sastojaka. Zahvaljujući svom sastavu, može se "
              "koristiti za negu kože sa ekcemima, gljivičnim i bakterijskim bolestima, kod hemoroida, psorijaze, žuljeva, "
