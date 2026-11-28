@@ -523,7 +523,7 @@ def apitox(lang):
 <p>Važno je napomenuti da, pored različitog dizajna, sakupljači pčelinjeg otrova imaju i velike razlike u elektronskim parametrima. Najveća razlika je u sistemu upravljanja (ručni ili automatski), u kontroli frekvencije i amplitude izlaznog signala, kao i u dužini rada uređaja. Razlike postoje i u pomoćnim elementima – svetlosnim i zvučnim indikatorima rada i pojedinih faza rada uređaja.</p>
 
 <h2 id="kolektor">Naš kolektor</h2>
-{F("019.jpg")}
+{F("sakupljac/komplet.jpg", "Komplet: elektrostimulator i pet kolektorskih ploča")}
 <p>Mnogo vremena i truda bilo je potrebno da Goran izradi sopstveni uređaj za sakupljanje pčelinjeg otrova. Pomogla su mu saznanja sa interneta i iz literature, kao i poznavanje elektronike, koja mu je struka. Ideja vodilja bila je doći do optimalnih elektronskih parametara, a to je bilo moguće samo izradom više modela i testiranjem svakog od njih. Posle mnogo proba i neuspeha, Goran je 2013. godine došao do uređaja koji vam predstavljamo, a koji je danas usavršen i nadograđen iskustvom.</p>
 <p>Uređaj radi na baterije napona 4,5 V, smeštene u kućištu elektrostimulatora, što je svakako praktičnije od automobilskog akumulatora. Mnogo dana provedenih u radionici i na pčelinjaku iznedrilo je najbolje rešenje: elektronske komponente ugrađene u elektrostimulator omogućavaju rad sa naizmeničnim naponom od 23 V do 30 V i frekvencijom oscilatora 700–1000 Hz, pri čemu impuls traje 3 sekunde, a pauza isto toliko. Ove karakteristike su se u praksi pokazale kao najbolje.</p>
 <p>Što se tiče žica na kolektorskoj ploči, nije bilo dileme. Već nakon prvih testiranja odbačena je inoks žica, jer je bolje rezultate pokazala posrebrena žica – ona je bolji provodnik, otporna je na hemijsko dejstvo otrova, a srebro ima i antiseptička svojstva (manja verovatnoća prenošenja bolesti na pčelinjaku). Razmak između žica na kolektorskoj ploči iznosi 4,2 mm, što se kroz testiranja pokazalo kao najbolje.</p>
@@ -533,6 +533,7 @@ def apitox(lang):
 <p>Sa sakupljanjem pčelinjeg otrova počinjemo u drugoj polovini aprila, ili čak malo ranije, ali samo ako su zajednice dovoljno jake – ako imaju 6 ramova legla u DB košnicama, odnosno 8 ramova legla u LR.</p>
 <p>Sve počinje postavljanjem kolektorskih ploča na poletaljke košnica. Ploča je debela 15 mm i duga 360 mm, što omogućava vađenje regulatora leta i postavljanje kolektorske ploče na njegovo mesto (sa bočnih strana fiksira se drvenim konusnim klinovima). Na podnjačama gde je regulator leta fiksiran, ploče se postavljaju uz pomoć plastičnih štipaljki. Razlika između unutrašnje mere košnice (372 mm) i kolektorske ploče (360 mm) podeljena je na po 6 mm sa obe strane, radi nesmetanog prolaska trutova.</p>
 <div class="pair">{F("021.jpg", "Elektronika")}{F("022.jpg", "Kolektorske ploče")}</div>
+<div class="pair">{F("sakupljac/u-radu.jpg", "Sakupljač u radu")}{F("sakupljac/kosnice.jpg", "Ploče na pčelinjaku")}</div>
 <p>Uređaj je programiran da se posle 45 minuta sam isključi, a ponekad ga možemo isključiti i ranije, ako primetimo da se smanjio broj pčela na sakupljaču. Zatim ploče premeštamo na druge košnice, i tek posle drugog ili trećeg „tretmana“ menjamo staklene ploče i nastavljamo sa još jednim „tretmanom“.</p>
 <p>Najbolje rezultate imamo u jutarnjim časovima, kada su pčele najaktivnije. Tokom dana uradimo 4 „tretmana“ na po 10 košnica odjednom. Prosečna količina pčelinjeg otrova koju na ovaj način dnevno sakupimo iznosi između 5 i 12 grama. Po košnici, odnosno po jednom tretmanu jedne košnice, količina sakupljenog otrova kreće se od 0,1 g do 0,3 g, u zavisnosti od jačine društva.</p>
 """
@@ -566,7 +567,7 @@ def apitox(lang):
 <p>Beyond their different designs, venom collectors also differ greatly in their electronic parameters. The biggest differences are in the control system (manual or automatic), in how the frequency and amplitude of the output signal are controlled, and in how long the device runs. They also differ in auxiliary features – light and sound indicators for operation and for individual stages.</p>
 
 <h2 id="kolektor">Our collector</h2>
-{F("019.jpg")}
+{F("sakupljac/komplet.jpg", "Set: electrostimulator and five collector plates")}
 <p>It took Goran a great deal of time and effort to build his own bee venom collector. He drew on information from the internet and the literature, and on his knowledge of electronics, which is his profession. The goal was to find the optimal electronic parameters, and the only way to do that was to build several models and test each one. After many trials and failures, in 2013 Goran arrived at the device we present here, which has since been refined and upgraded with experience.</p>
 <p>The device runs on 4.5 V batteries housed in the electrostimulator casing – far more practical than a car battery. Many days in the workshop and at the apiary produced the best solution: the electronic components built into the electrostimulator allow it to work with an alternating voltage of 23–30 V and an oscillator frequency of 700–1000 Hz, with 3-second pulses and equally long pauses. These settings have proven the best in practice.</p>
 <p>There was no doubt about the wire on the collector plate. Stainless steel wire was rejected after the first tests, because silver-plated wire performed better: it conducts better, resists the chemical action of the venom, and silver is antiseptic (less chance of spreading disease in the apiary). The spacing between the wires is 4.2 mm, which testing showed to be optimal.</p>
@@ -576,6 +577,7 @@ def apitox(lang):
 <p>We start collecting bee venom in the second half of April, or slightly earlier, but only once the colonies are strong enough – 6 frames of brood in DB hives, or 8 frames of brood in LR hives.</p>
 <p>It all starts by placing the collector plates at the hive entrances. The plate is 15 mm thick and 360 mm long, so the entrance reducer can be removed and the plate put in its place (fixed at the sides with wooden wedges). On bottom boards where the entrance reducer is fixed, the plates are held with plastic clips. The difference between the inside width of the hive (372 mm) and the plate (360 mm) leaves 6 mm on each side so drones can pass freely.</p>
 <div class="pair">{F("021.jpg", "Electronics")}{F("022.jpg", "Collector plates")}</div>
+<div class="pair">{F("sakupljac/u-radu.jpg", "The collector at work")}{F("sakupljac/kosnice.jpg", "Plates at the apiary")}</div>
 <p>The device is programmed to switch off by itself after 45 minutes; sometimes we switch it off earlier if we see fewer bees on the collector. We then move the plates to other hives, and only after the second or third "treatment" do we change the glass plates and continue with another one.</p>
 <p>The best results come in the morning, when bees are most active. During the day we do 4 "treatments" on 10 hives at a time. On average we collect between 5 and 12 grams of venom a day this way. Per hive, that is, per treatment of one hive, we collect 0.1 g to 0.3 g, depending on the strength of the colony.</p>
 """
@@ -585,7 +587,8 @@ def apitox(lang):
 
     tocs = "".join(f'<a href="#{a}">{n}</a>' for a, n in toc)
     st = "".join(f"<div><b>{v}</b><span>{k}</span></div>" for v, k in stats)
-    pics = [f"0{n:02d}.jpg" for n in [25, 26, 27, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]]
+    pics = [f"sakupljac/{n}.jpg" for n in ["komplet", "u-radu", "izbliza", "lepeza", "pcelinjak", "kosnice", "sajam", "sto"]]
+    pics += [f"0{n:02d}.jpg" for n in [25, 26, 27, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]]
     b = "" if lang == "sr" else "../"
     body = f"""{bn}
 <section class="content paper"><div class="wrap">

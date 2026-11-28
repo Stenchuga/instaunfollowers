@@ -38,7 +38,7 @@ window.PRODUCTS = [
   { id: "propolis-sprej", cat: "pcelinji", price: 450, unit: "20 ml", img: "img/proizvodi/propolis-sprej.webp", cover: true,
     sr: { name: "Propolis sprej 30%", desc: "Prečišćeni propolis u spreju" },
     en: { name: "Propolis spray 30%", desc: "Purified propolis spray" } },
-  { id: "apitox-sakupljac", cat: "oprema", price: null, priceEur: 400, unit: "", img: "img/017.jpg", cover: true, page: "apitox-sakupljac",
+  { id: "apitox-sakupljac", cat: "oprema", price: null, priceEur: 400, unit: "", img: "img/sakupljac/komplet.jpg", cover: true, page: "apitox-sakupljac",
     sr: { name: "Apitox sakupljač", desc: "Uređaj za sakupljanje pčelinjeg otrova" },
     en: { name: "Apitox collector", desc: "Bee venom collecting device" } }
 ];
